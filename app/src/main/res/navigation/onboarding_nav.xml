@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboarding_nav"
+    app:startDestination="@id/introScreensFragment">
+    <fragment
+        android:id="@+id/introScreensFragment"
+        android:name="com.nsa.comuty.onboarding.ui.fragments.IntroScreensFragment"
+        android:label="fragment_intro_screens"
+        tools:layout="@layout/fragment_intro_screens" >
+        <action
+            android:id="@+id/action_introScreensFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/introScreensFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.nsa.comuty.onboarding.ui.fragments.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
+</navigation>
