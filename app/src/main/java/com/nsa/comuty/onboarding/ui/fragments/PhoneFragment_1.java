@@ -15,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -104,6 +105,12 @@ public class PhoneFragment_1 extends Fragment {
         View countryCodeView= binding.coordinator.findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(countryCodeView);
         countrycodeBinding=CountryCodeLayoutBinding.bind(countryCodeView);
+        binding.backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
 
         binding.privacyPolicyBTN.setText(Html.fromHtml("<u>Privacy Policy.</u>"));
         binding.countryCodeTXT.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +134,7 @@ public class PhoneFragment_1 extends Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 String s=editable.toString()+"";
+                checkBTN();
                 if(s.length()==10){
                     binding.phoneED.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,getContext().getDrawable(R.drawable.ic_baseline_done_24),null);
                 }else{
@@ -135,13 +143,35 @@ public class PhoneFragment_1 extends Fragment {
                 binding.phoneED.requestLayout();
             }
         });
+        binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    checkBTN();
+            }
+        });
         binding.constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Keyboard.hide(view);
             }
         });
+        binding.sendOTPBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_phoneFragment_1_to_phoneFragment_2);
+            }
+        });
        initCountyCodeLayout();
+    }
+
+    private void checkBTN() {
+        if(binding.checkbox.isChecked() && binding.phoneED.getText().toString().length()==10){
+            binding.sendOTPBTN.setEnabled(true);
+            binding.sendOTPBTN.setAlpha(1f);
+        }else{
+            binding.sendOTPBTN.setEnabled(false);
+            binding.sendOTPBTN.setAlpha(0.5f);
+        }
     }
 
     private void initCountyCodeLayout() {

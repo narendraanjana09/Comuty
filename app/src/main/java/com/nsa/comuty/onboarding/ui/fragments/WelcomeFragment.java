@@ -82,7 +82,7 @@ public class WelcomeFragment extends Fragment {
         binding.withPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_welcomeFragment_to_phoneFragment_1);
+               navController.navigate(R.id.action_welcomeFragment_to_phoneFragment_1);
             }
         });
 

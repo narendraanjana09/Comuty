@@ -12,13 +12,22 @@
         <action
             android:id="@+id/action_introScreensFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/right_to_left"
             app:popUpTo="@id/introScreensFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_introScreensFragment_to_registerFragment"
             app:destination="@id/registerFragment"
             app:popUpTo="@id/introScreensFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -29,10 +38,20 @@
             android:id="@+id/action_welcomeFragment_to_successFragment"
             app:destination="@id/successFragment"
             app:popUpTo="@id/welcomeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
         <action
             android:id="@+id/action_welcomeFragment_to_phoneFragment_1"
-            app:destination="@id/phoneFragment_1" />
+            app:destination="@id/phoneFragment_1"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+
     </fragment>
     <fragment
         android:id="@+id/successFragment"
@@ -42,10 +61,10 @@
         <action
             android:id="@+id/action_successFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/successFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -56,7 +75,12 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_registerFragment_2"
-            app:destination="@id/registerFragment_2" />
+            app:destination="@id/registerFragment_2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/phoneFragment_1"
@@ -65,7 +89,11 @@
         tools:layout="@layout/fragment_phone_1" >
         <action
             android:id="@+id/action_phoneFragment_1_to_phoneFragment_2"
-            app:destination="@id/phoneFragment_2" />
+            app:destination="@id/phoneFragment_2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/phoneFragment_2"
@@ -76,7 +104,12 @@
             android:id="@+id/action_phoneFragment_2_to_successFragment"
             app:destination="@id/successFragment"
             app:popUpTo="@id/phoneFragment_2"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/registerFragment_2"
