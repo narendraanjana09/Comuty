@@ -3,10 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/bg_window.xml" value="0.1765" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/accept_terms_dialog.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_bottom_sheet_example.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_home.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_main.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_onboarding.xml" value="0.2484375" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/country_code_item.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/country_code_layout.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_country_code_list_dialog.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_country_code_list_dialog_item.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_intro_screens.xml" value="0.176" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_1.xml" value="0.16" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_2.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_welcome.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/persistent_bottomsheet.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/screens_layout.xml" value="0.1569078947368421" />
       </map>
     </option>

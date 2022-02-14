@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".onboarding.ui.fragments.PhoneFragment_1">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.07"
+        >
+        <ImageView
+            android:id="@+id/backBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/arrow_right_1"
+            android:rotation="180"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleTV"
+            app:layout_constraintBottom_toBottomOf="@id/titleTV"
+            app:layout_constraintEnd_toStartOf="@id/titleTV"
+            />
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_height="wrap_content"
+            android:text="Login/SignUp With Phone"
+            android:textColor="@color/text_color"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/backBTN"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.4"
+        app:lottie_rawRes="@raw/phone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:layout_constraintBottom_toTopOf="@id/txt2"
+        />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Please select your Country code\nand enter phone number to\nrecieve verification code."
+        android:textColor="@color/text_color"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
+        app:layout_constraintBottom_toTopOf="@id/numberLayout"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/numberLayout"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.85"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt2"
+        app:layout_constraintBottom_toTopOf="@id/top"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        app:cardMaxElevation="10dp"
+        app:cardElevation="10dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/countryCodeTXT"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.25"
+                android:text="+91"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/line"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center|end"
+                android:textSize="25sp"
+                android:drawableTint="@color/text_color"
+                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                android:layout_height="match_parent"/>
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.7"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/black"
+                app:layout_constraintStart_toEndOf="@id/countryCodeTXT"
+                />
+            <EditText
+                android:id="@+id/phoneED"
+                android:textColorHint="@color/text_color"
+                android:backgroundTint="@color/background"
+                android:textSize="22sp"
+                android:hint="1234567890"
+                android:textColor="@color/text_color"
+                android:layout_width="0dp"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:maxLength="10"
+                app:layout_constraintWidth_percent="0.6"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@id/line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:drawableTint="@color/teal_200"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/continueBTN"
+        app:layout_constraintBottom_toTopOf="@id/continueBTN"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I accept "
+            app:buttonTint="@color/text_color"
+            android:textColor="@color/text_color"
+            />
+        <TextView
+            android:id="@+id/privacyPolicyBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="terms &amp; condition"
+            android:textColor="@color/text_color"
+            />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/continueBTN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:enabled="false"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.6"
+        android:textColor="@color/text_color"
+        android:text="Send OTP"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:backgroundTint="@color/button_bg1"
+        app:layout_constraintTop_toBottomOf="@id/numberLayout"
+        app:layout_constraintVertical_bias="0.8"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <include layout="@layout/country_code_layout" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>
