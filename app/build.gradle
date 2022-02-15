@@ -55,6 +55,12 @@ dependencies {
     def lottieVersion = "4.2.2"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //shimmer effect
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 
 
 

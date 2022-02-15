@@ -7,13 +7,68 @@
     android:background="@color/background"
     tools:context=".home.HomeActivity">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Home"
-        android:textColor="@color/text_color"
-        android:textSize="30sp"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:background="@color/background"
+           android:layout_height="match_parent">
+           <TextView
+               android:id="@+id/title_txt"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:text="Explore"
+               android:textColor="@color/text_color"
+               android:textStyle="bold"
+               android:textSize="24sp"
+               android:layout_marginTop="10dp"
+               android:layout_marginBottom="10dp"
+               android:layout_marginStart="20dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/profile_image"
+               android:layout_width="45dp"
+               android:layout_height="45dp"
+               android:src="@drawable/iron_man"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:layout_marginEnd="20dp"
+               />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        app:layout_constraintTop_toBottomOf="@id/appbarlayout"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.9"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:menu="@menu/bottom_navigation"
+        android:background="@drawable/round_corner"
+        app:itemRippleColor="@color/button_bg1"
+        app:itemIconSize="30dp"
+        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="@color/text_color"
+        app:itemIconTint="@drawable/item_selector"
+        android:id="@+id/bottom_navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

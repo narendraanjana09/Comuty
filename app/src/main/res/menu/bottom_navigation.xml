@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_explore"
+        android:icon="@drawable/ic_baseline_explore_24"
+        android:title="Explore" />
+    <item
+        android:id="@+id/nav_event"
+        android:icon="@drawable/event"
+        android:title="Event" />
+    <item
+        android:id="@+id/nav_add"
+        android:icon="@drawable/add"
+        android:title="Add" />
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/chat"
+        android:title="Chats" />
+    <item
+        android:id="@+id/nav_friends"
+        android:icon="@drawable/friends"
+        android:title="Friends" />
+
+
+</menu>
