@@ -6,6 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     tools:context=".onboarding.ui.fragments.WelcomeFragment">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -109,5 +113,5 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

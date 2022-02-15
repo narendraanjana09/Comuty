@@ -3,12 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".onboarding.ui.fragments.RegisterFragment_2">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.07"
+        >
 
+
+        <ImageView
+            android:id="@+id/backBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/indexTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2/2"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:lottie_rawRes="@raw/searching_for_profile"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/txt1"
+            android:text="Enter your college details"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@color/text_color"
+            app:layout_constraintTop_toBottomOf="@id/animationView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="College"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
+            app:layout_constraintTop_toBottomOf="@id/txt1"
+            app:layout_constraintStart_toStartOf="@id/college_name_TV"
+            />
+        <TextView
+            android:id="@+id/star1"
+            android:text="*"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/college_name_TV"
+            app:layout_constraintTop_toTopOf="@id/college_name_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/college_name_TV"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt2"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:text="Indore Intitute of Science &amp; Tech..."
+            android:drawableTint="@color/text_color"
+            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:layout_height="wrap_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

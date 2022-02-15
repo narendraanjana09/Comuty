@@ -72,7 +72,7 @@
         android:id="@+id/registerFragment"
         android:name="com.nsa.comuty.onboarding.ui.fragments.RegisterFragment_1"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register_1" >
         <action
             android:id="@+id/action_registerFragment_to_registerFragment_2"
             app:destination="@id/registerFragment_2"
