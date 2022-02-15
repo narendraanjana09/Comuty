@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/bg_window.xml" value="0.1765" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_baseline_cast_for_education_24.xml" value="0.1865" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/otp_bg.xml" value="0.1825" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/accept_terms_dialog.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_bottom_sheet_example.xml" value="0.14703947368421053" />
@@ -18,8 +19,10 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_1.xml" value="0.16" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_2.xml" value="0.2" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register.xml" value="0.2" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register_1.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register_2.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success_register.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_welcome.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/persistent_bottomsheet.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/screens_layout.xml" value="0.1569078947368421" />

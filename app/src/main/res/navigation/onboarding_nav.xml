@@ -55,9 +55,9 @@
     </fragment>
     <fragment
         android:id="@+id/successFragment"
-        android:name="com.nsa.comuty.onboarding.ui.fragments.SuccessFragment"
+        android:name="com.nsa.comuty.onboarding.ui.fragments.SignInSuccessFragment"
         android:label="fragment_success"
-        tools:layout="@layout/fragment_success" >
+        tools:layout="@layout/fragment_success_sign_in" >
         <action
             android:id="@+id/action_successFragment_to_registerFragment"
             app:destination="@id/registerFragment"
@@ -115,5 +115,13 @@
         android:id="@+id/registerFragment_2"
         android:name="com.nsa.comuty.onboarding.ui.fragments.RegisterFragment_2"
         android:label="fragment_register_2"
-        tools:layout="@layout/fragment_register_2" />
+        tools:layout="@layout/fragment_register_2" >
+        <action
+            android:id="@+id/action_registerFragment_2_to_registerSuccessFragment"
+            app:destination="@id/registerSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerSuccessFragment"
+        android:name="com.nsa.comuty.onboarding.ui.fragments.RegisterSuccessFragment"
+        android:label="RegisterSuccessFragment" />
 </navigation>

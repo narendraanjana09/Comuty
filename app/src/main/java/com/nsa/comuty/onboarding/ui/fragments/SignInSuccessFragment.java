@@ -1,5 +1,7 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import static com.nsa.comuty.onboarding.extra.Keys.SIGN_IN_DONE;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,20 +10,18 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.nsa.comuty.R;
-import com.nsa.comuty.databinding.FragmentRegister1Binding;
-import com.nsa.comuty.databinding.FragmentRegister2Binding;
+import com.nsa.comuty.databinding.FragmentSuccessSignInBinding;
+import com.nsa.comuty.databinding.FragmentWelcomeBinding;
+import com.nsa.comuty.onboarding.extra.SavedText;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment_2#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class RegisterFragment_2 extends Fragment {
+
+public class SignInSuccessFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,27 +32,11 @@ public class RegisterFragment_2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RegisterFragment_2() {
+    public SignInSuccessFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment_2.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegisterFragment_2 newInstance(String param1, String param2) {
-        RegisterFragment_2 fragment = new RegisterFragment_2();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,12 +47,13 @@ public class RegisterFragment_2 extends Fragment {
         }
     }
 
-    private FragmentRegister2Binding binding;
+    private FragmentSuccessSignInBinding binding;
     private NavController navController;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= FragmentRegister2Binding
+        binding= FragmentSuccessSignInBinding
                 .inflate(inflater,container,false);
         return binding.getRoot();
     }
@@ -77,17 +62,17 @@ public class RegisterFragment_2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
-        binding.backBTN.setOnClickListener(new View.OnClickListener() {
+        new SavedText(getContext()).setText(SIGN_IN_DONE,"yes");
+        new CountDownTimer(2000, 1000) {
             @Override
-            public void onClick(View view) {
-                navController.popBackStack();
+            public void onTick(long l) {
+
             }
-        });
-        binding.submitBTN.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_registerFragment_2_to_registerSuccessFragment);
+            public void onFinish() {
+                navController.navigate(R.id.action_successFragment_to_registerFragment);
             }
-        });
+        }.start();
     }
 }

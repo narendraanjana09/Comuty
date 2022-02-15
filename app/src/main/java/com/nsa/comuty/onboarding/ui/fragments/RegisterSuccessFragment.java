@@ -1,8 +1,14 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import static com.nsa.comuty.onboarding.extra.Keys.REGISTER_DONE;
 import static com.nsa.comuty.onboarding.extra.Keys.SIGN_IN_DONE;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,18 +16,14 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.CountDownTimer;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.nsa.comuty.R;
-import com.nsa.comuty.databinding.FragmentSuccessBinding;
-import com.nsa.comuty.databinding.FragmentWelcomeBinding;
+import com.nsa.comuty.databinding.FragmentSuccessRegisterBinding;
+import com.nsa.comuty.databinding.FragmentSuccessSignInBinding;
+import com.nsa.comuty.home.HomeActivity;
 import com.nsa.comuty.onboarding.extra.SavedText;
 
 
-public class SuccessFragment extends Fragment {
+public class RegisterSuccessFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +34,7 @@ public class SuccessFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SuccessFragment() {
+    public RegisterSuccessFragment() {
         // Required empty public constructor
     }
 
@@ -47,13 +49,13 @@ public class SuccessFragment extends Fragment {
         }
     }
 
-    private FragmentSuccessBinding binding;
+    private FragmentSuccessRegisterBinding binding;
     private NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= FragmentSuccessBinding
+        binding= FragmentSuccessRegisterBinding
                 .inflate(inflater,container,false);
         return binding.getRoot();
     }
@@ -62,7 +64,7 @@ public class SuccessFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
-        new SavedText(getContext()).setText(SIGN_IN_DONE,"yes");
+        new SavedText(getContext()).setText(REGISTER_DONE,"yes");
         new CountDownTimer(2000, 1000) {
             @Override
             public void onTick(long l) {
@@ -71,7 +73,8 @@ public class SuccessFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                navController.navigate(R.id.action_successFragment_to_registerFragment);
+                startActivity(new Intent(getActivity(), HomeActivity.class));
+                getActivity().finish();
             }
         }.start();
     }
