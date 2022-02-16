@@ -6,7 +6,7 @@
     android:background="@color/white"
     app:behavior_hideable="false"
     app:behavior_peekHeight="0dp"
-    android:id="@+id/add_post_event_layout"
+    android:id="@+id/new_chat_group_layout"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     >
 
@@ -21,20 +21,22 @@
         app:tint="@color/text_color"
         android:src="@drawable/ic_baseline_close_24"
         />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/chat_gif"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@id/group_gif"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/group_gif"
-        app:lottie_rawRes="@raw/new_event"
-        android:layout_marginStart="10dp"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginBottom="60dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        />
+        app:lottie_rawRes="@raw/new_chat" />
+
     <ImageView
         android:id="@+id/path1"
         android:layout_width="160dp"
@@ -61,7 +63,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="New Event"
+            android:text="New Chat"
             android:textColor="@color/text_color"
             android:textSize="20sp"
             />
@@ -69,7 +71,7 @@
     </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/info1"
-        android:text="* Event might be a Hackathon or any possible\n   event in your college or somewhere"
+        android:text="* Chat with a single person"
         android:textColor="@color/text_hint_color"
         app:layout_constraintTop_toBottomOf="@id/new_chat_btn"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        app:lottie_rawRes="@raw/new_post"
+        app:lottie_rawRes="@raw/new_group"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         />
@@ -135,7 +137,7 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="New Post"
+            android:text="New Group"
             android:textColor="@color/text_color"
             android:textSize="20sp"
             />
@@ -143,7 +145,7 @@
     </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/info2"
-        android:text="* Post might be on your latest achievements or\n   your new thoughts "
+        android:text="* Chat with a group of people"
         android:textColor="@color/text_hint_color"
         app:layout_constraintTop_toBottomOf="@id/new_group_btn"
        android:layout_marginEnd="10dp"
