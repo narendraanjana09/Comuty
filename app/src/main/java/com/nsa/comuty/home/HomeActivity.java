@@ -11,11 +11,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationBarView;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.ActivityHomeBinding;
+import com.nsa.comuty.databinding.AddPostEventLayoutBinding;
+import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
 import com.nsa.comuty.home.adapters.ViewPagerAdapter;
 import com.nsa.comuty.home.ui.ChatsFragment;
 import com.nsa.comuty.home.ui.EventFragment;
@@ -25,6 +30,8 @@ import com.nsa.comuty.home.ui.FriendsFragment;
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
+    private AddPostEventLayoutBinding addPostEventLayoutBinding;
+    private BottomSheetBehavior addPostEventSheetBehaviour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +39,42 @@ public class HomeActivity extends AppCompatActivity {
         binding=ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
-
-
-
-
-
+        setupAddEvent_Post();
         setupViewPager();
+        setupchatsMenu();
+    }
+
+    private void setupAddEvent_Post() {
+        View countryCodeView= binding.coordinator1.findViewById(R.id.add_post_event_layout);
+        addPostEventSheetBehaviour = BottomSheetBehavior.from(countryCodeView);
+        addPostEventLayoutBinding=AddPostEventLayoutBinding.bind(countryCodeView);
+        addPostEventLayoutBinding.close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+    }
+
+    private void setupchatsMenu() {
+        binding.menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(HomeActivity.this, view);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater().inflate(R.menu.chats_menu, popup.getMenu());
+
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        showToast("You Clicked : " + item.getTitle());
+                        return true;
+                    }
+                });
+
+                popup.show();
+            }
+        });
     }
 
     private void setupViewPager() {
@@ -62,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         binding.viewPager.setCurrentItem(3,true);
                         break;
-                    default:showToast("add button");
+                    default:addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
                     return false;
                 }
                 checkToolbar();
@@ -107,10 +142,18 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.nav_event:binding.titleTxt.setText("Events");
                 break;
-            case R.id.nav_chat:binding.titleTxt.setText("Chats");
-                break;
             case R.id.nav_friends:binding.titleTxt.setText("Friends");
                 break;
+            case R.id.nav_chat:binding.titleTxt.setText("Chats");
+                break;
+
+        }
+        if(binding.bottomNavigation.getSelectedItemId()==R.id.nav_chat){
+            binding.profileImage.setVisibility(View.GONE);
+            binding.chatsLayout.setVisibility(View.VISIBLE);
+        }else{
+            binding.profileImage.setVisibility(View.VISIBLE);
+            binding.chatsLayout.setVisibility(View.GONE);
         }
     }
 

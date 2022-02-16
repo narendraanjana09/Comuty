@@ -5,11 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".home.ui.EventFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/text_color"
-        android:text="events"
-        android:textSize="30sp"/>
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <com.facebook.shimmer.ShimmerFrameLayout
+           android:id="@+id/shimmer"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_centerInParent="true">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <include
+                   android:id="@+id/id1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   layout="@layout/shimmer_event_item"/>
+               <include
+                   android:id="@+id/id2"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   layout="@layout/shimmer_event_item"/>
+               <include
+                   android:id="@+id/id3"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   layout="@layout/shimmer_event_item"/>
+               <include
+                   android:id="@+id/id4"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="10dp"
+                   android:layout_marginEnd="10dp"
+                   android:layout_marginTop="10dp"
+                   layout="@layout/shimmer_event_item"/>
+
+           </LinearLayout>
+       </com.facebook.shimmer.ShimmerFrameLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
