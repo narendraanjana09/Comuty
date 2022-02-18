@@ -3,15 +3,9 @@ package com.nsa.comuty.home;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
-import androidx.navigation.NavOptionsBuilder;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
@@ -22,13 +16,12 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.ActivityHomeBinding;
 import com.nsa.comuty.databinding.AddPostEventLayoutBinding;
-import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
 import com.nsa.comuty.databinding.NewChatGroupLayoutBinding;
 import com.nsa.comuty.home.adapters.ViewPagerAdapter;
 import com.nsa.comuty.home.ui.ChatsFragment;
 import com.nsa.comuty.home.ui.EventFragment;
 import com.nsa.comuty.home.ui.ExploreFragment;
-import com.nsa.comuty.home.ui.FriendsFragment;
+import com.nsa.comuty.home.ui.MoreFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -125,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_chat:
                         binding.viewPager.setCurrentItem(2,true);
                         break;
-                    case R.id.nav_friends:
+                    case R.id.nav_more:
 
                         binding.viewPager.setCurrentItem(3,true);
                         break;
@@ -164,7 +157,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new ExploreFragment());
         adapter.addFragment(new EventFragment());
         adapter.addFragment(new ChatsFragment());
-        adapter.addFragment(new FriendsFragment());
+        adapter.addFragment(new MoreFragment());
         binding.viewPager.setAdapter(adapter);
     }
 
@@ -174,7 +167,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.nav_event:binding.titleTxt.setText("Events");
                 break;
-            case R.id.nav_friends:binding.titleTxt.setText("Friends");
+            case R.id.nav_more:binding.titleTxt.setText("More");
                 break;
             case R.id.nav_chat:binding.titleTxt.setText("Chats");
                 break;

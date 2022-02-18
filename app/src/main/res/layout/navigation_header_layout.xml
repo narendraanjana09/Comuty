@@ -178,7 +178,26 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
+    <View
+        android:id="@+id/bar_info"
+        android:layout_width="1dp"
+        android:layout_marginStart="27dp"
+        android:layout_height="1dp"
+        android:alpha="0"
+        android:background="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/info_btn"
+        app:layout_constraintStart_toStartOf="@id/info_btn"
+        />
+    <ImageView
+        android:id="@+id/bar1"
+        android:src="@drawable/dash_line"
+        android:layerType="software"
+        app:layout_constraintStart_toEndOf="@id/bar_info"
+        app:layout_constraintEnd_toStartOf="@id/privacy_policy_btn"
+        app:layout_constraintTop_toTopOf="@id/privacy_policy_btn"
+        app:layout_constraintBottom_toBottomOf="@id/privacy_policy_btn"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/privacy_policy_btn"
         android:layout_width="0dp"
@@ -228,6 +247,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+    <ImageView
+        android:id="@+id/bar2"
+        android:src="@drawable/dash_line"
+        android:layerType="software"
+        app:layout_constraintStart_toEndOf="@id/bar_info"
+        app:layout_constraintEnd_toStartOf="@id/terms_condition_btn"
+        app:layout_constraintTop_toTopOf="@id/terms_condition_btn"
+        app:layout_constraintBottom_toBottomOf="@id/terms_condition_btn"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/terms_condition_btn"
         android:layout_width="0dp"
@@ -277,6 +306,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+    <ImageView
+        android:id="@+id/bar4"
+        android:src="@drawable/dash_line"
+        android:layerType="software"
+        app:layout_constraintStart_toEndOf="@id/bar_info"
+        app:layout_constraintEnd_toStartOf="@id/about_btn"
+        app:layout_constraintTop_toTopOf="@id/about_btn"
+        app:layout_constraintBottom_toBottomOf="@id/about_btn"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/about_btn"
         android:layout_width="0dp"
@@ -326,6 +365,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+    <ImageView
+        android:id="@+id/bar3"
+        android:src="@drawable/dash_line"
+        android:layerType="software"
+        app:layout_constraintStart_toEndOf="@id/bar_info"
+        app:layout_constraintEnd_toStartOf="@id/help_btn"
+        app:layout_constraintTop_toTopOf="@id/help_btn"
+        app:layout_constraintBottom_toBottomOf="@id/help_btn"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/help_btn"
         android:layout_width="0dp"

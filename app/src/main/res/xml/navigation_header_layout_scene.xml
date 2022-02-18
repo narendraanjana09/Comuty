@@ -4,16 +4,16 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@id/start"
-        motion:duration="600">
+        motion:constraintSetEnd="@+id/end_info"
+        motion:constraintSetStart="@id/start_info"
+        motion:duration="400">
        <KeyFrameSet>
        </KeyFrameSet>
         <OnClick motion:targetId="@+id/info_btn" />
 
     </Transition>
 
-    <ConstraintSet android:id="@+id/start">
+    <ConstraintSet android:id="@+id/start_info">
         <Constraint
             android:id="@+id/info_drop_down"
             android:elevation="10dp"
@@ -26,7 +26,7 @@
             android:rotation="0" />
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/end">
+    <ConstraintSet android:id="@+id/end_info">
         <Constraint
             android:id="@+id/privacy_policy_btn"
             android:elevation="10dp"
@@ -62,6 +62,8 @@
             android:elevation="10dp"
             motion:layout_constraintWidth_percent="0.6"
             motion:layout_constraintEnd_toEndOf="@id/info_btn"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="40dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:alpha="1"
@@ -79,5 +81,15 @@
             android:layout_marginEnd="15dp"
             motion:layout_constraintTop_toTopOf="@id/info_btn"
             android:rotation="180" />
+        <Constraint
+            android:id="@+id/bar_info"
+            android:layout_width="1dp"
+            android:layout_marginStart="27dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            motion:layout_constraintTop_toBottomOf="@id/info_btn"
+            motion:layout_constraintBottom_toTopOf="@id/bar4"
+            motion:layout_constraintStart_toStartOf="@id/info_btn"
+            motion:layout_constraintEnd_toStartOf="@id/bar4"/>
     </ConstraintSet>
 </MotionScene>

@@ -5,8 +5,14 @@
       <map>
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable-v24/shimmer_bg.xml" value="0.169" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/bg_window.xml" value="0.1765" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/dash.xml" value="0.254" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/dash_line.xml" value="0.1825" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_baseline_cast_for_education_24.xml" value="0.1865" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_line_path_1.xml" value="0.239" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_line_path_2.xml" value="0.239" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/info_line.xml" value="0.239" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/item_selector.xml" value="0.169" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/more_rv_item_bg.xml" value="0.2185" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/otp_bg.xml" value="0.1825" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/round_corner.xml" value="0.169" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/accept_terms_dialog.xml" value="0.1569078947368421" />
@@ -25,6 +31,8 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_friends.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_home.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_intro_screens.xml" value="0.176" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_more.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_more_rv_item.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_1.xml" value="0.16" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_phone_2.xml" value="0.2" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register.xml" value="0.2" />
@@ -42,13 +50,6 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_explore_item.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/menu/bottom_navigation.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/menu/chats_menu.xml" value="0.2484375" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/country_code_item.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/country_code_layout.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/fragment_phone_1.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/fragment_phone_2.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/fragment_register_1.xml" value="0.25" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/Comuty/app/src/main/res/layout/fragment_register_2.xml" value="0.25" />
       </map>
     </option>
   </component>

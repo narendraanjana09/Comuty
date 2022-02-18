@@ -15,7 +15,7 @@
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/right_to_left"
+            app:popExitAnim="@anim/bottom_to_top"
             app:popUpTo="@id/introScreensFragment"
             app:popUpToInclusive="true" />
         <action

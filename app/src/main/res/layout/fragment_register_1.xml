@@ -114,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_baseline_add_photo_alternate_24"
-                    android:scaleType="centerInside"
+                    android:scaleType="center"
                     app:tint="@color/text_color"
                     />
             </androidx.cardview.widget.CardView>
@@ -173,8 +173,9 @@
                 app:layout_constraintTop_toBottomOf="@id/txt4"
                 android:textColor="@color/text_color"
                 android:textColorHint="@color/text_hint_color"
-                android:hint="00/00/0000"
+                android:hint="dd/mm/yyyy"
                 android:inputType="date"
+                android:maxLength="10"
                 android:drawableTint="@color/text_color"
                 android:drawableLeft="@drawable/ic_baseline_perm_contact_calendar_24"
                 android:drawablePadding="20dp"

@@ -134,6 +134,22 @@
         app:headerLayout="@layout/navigation_header_layout"
         android:id="@+id/navigation_view"
       >
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/logout"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:layout_gravity="bottom|center"
+            app:iconTint="@color/text_color"
+            android:elevation="10dp"
+            app:elevation="10dp"
+            app:iconGravity="end"
+            app:cornerRadius="5dp"
+            android:textAlignment="center"
+            android:padding="10dp"
+            app:icon="@drawable/ic_baseline_logout_24"
+            android:backgroundTint="@color/button_bg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </com.google.android.material.navigation.NavigationView>
 
