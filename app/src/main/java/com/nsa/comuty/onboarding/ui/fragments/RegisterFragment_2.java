@@ -1,5 +1,6 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,14 +8,27 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.nsa.comuty.R;
-import com.nsa.comuty.databinding.FragmentRegister1Binding;
+import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
 import com.nsa.comuty.databinding.FragmentRegister2Binding;
+import com.nsa.comuty.onboarding.adapters.CollegeNameAdapter;
+import com.nsa.comuty.onboarding.extra.Keyboard;
+import com.nsa.comuty.onboarding.interfaces.CollegeClickListener;
+import com.nsa.comuty.onboarding.models.CollegeModel;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,10 +87,27 @@ public class RegisterFragment_2 extends Fragment {
         return binding.getRoot();
     }
 
+    private CountryCodeLayoutBinding collegeNameBinding;
+    private BottomSheetBehavior sheetBehavior;
+    private CollegeNameAdapter adapter;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
+
+        View collegeNameView= binding.coordinator.findViewById(R.id.bottom_sheet_layout);
+        sheetBehavior = BottomSheetBehavior.from(collegeNameView);
+        collegeNameBinding=CountryCodeLayoutBinding.bind(collegeNameView);
+
+        binding.collegeNameTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Keyboard.hide(view);
+                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
         binding.backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,5 +120,71 @@ public class RegisterFragment_2 extends Fragment {
                 navController.navigate(R.id.action_registerFragment_2_to_registerSuccessFragment);
             }
         });
+        initCollegeNameLayout();
+
+}
+    private void initCollegeNameLayout() {
+        adapter=new CollegeNameAdapter(getContext());
+        adapter.setListener(new CollegeClickListener() {
+            @Override
+            public void onClick(CollegeModel model) {
+                Keyboard.hide(collegeNameBinding.searchED);
+                collegeNameBinding.close.callOnClick();
+                binding.collegeNameTV.setText(model.getCollegeName());
+            }
+        });
+        collegeNameBinding.countryCodeRecyclerView.setAdapter(adapter);
+        collegeNameBinding.countryCodeRecyclerView.addItemDecoration(new Space(5));
+        collegeNameBinding.searchED.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String s=(editable.toString()+"").toLowerCase();
+                if(s.isEmpty()){
+                    adapter.setList(adapter.getSearchList());
+                }else{
+                    List<CollegeModel> list=new ArrayList<>();
+                    for(CollegeModel model:adapter.getSearchList()){
+                        if(model.getCollegeName().toLowerCase().contains(s) ){
+                            list.add(model);
+                        }
+                    }
+                    adapter.setList(list);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+        collegeNameBinding.close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+    }}
+class Space extends RecyclerView.ItemDecoration{
+    int space;
+
+    public Space(int space) {
+        this.space = space;
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+
+        outRect.left=space;
+        outRect.right=space;
+        if(parent.getChildLayoutPosition(view)==0)
+            outRect.top=space;
+        outRect.bottom=space;
     }
 }
