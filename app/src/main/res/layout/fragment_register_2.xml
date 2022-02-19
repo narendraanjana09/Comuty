@@ -164,76 +164,102 @@
             android:id="@+id/txt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
             android:text="Year*"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/year_TV"
+            app:layout_constraintStart_toStartOf="@+id/yearLayput"
             app:layout_constraintTop_toBottomOf="@+id/branchLayout" />
 
-        <TextView
-            android:id="@+id/year_TV"
+        <LinearLayout
+            android:id="@+id/yearLayput"
             android:layout_width="0dp"
-            app:layout_constraintStart_toStartOf="@id/branchLayout"
-            app:layout_constraintTop_toBottomOf="@id/txt4"
-            app:layout_constraintEnd_toStartOf="@id/section_TV"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginEnd="30dp"
-            android:gravity="center"
-            android:text="1"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/sectionLayout"
+            app:layout_constraintStart_toStartOf="@+id/branchLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txt4">
+
+            <TextView
+                android:id="@+id/year_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/yearSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownVerticalOffset="30dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/branchLayout"
+            app:layout_constraintStart_toEndOf="@id/yearLayput"
+            app:layout_constraintTop_toBottomOf="@id/txt5">
+
+            <TextView
+                android:id="@+id/section_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/sections"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sectionSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:dropDownVerticalOffset="30dp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
             android:text="Section"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/section_TV"
+            app:layout_constraintStart_toStartOf="@id/sectionLayout"
             app:layout_constraintTop_toBottomOf="@+id/branchLayout" />
 
-        <TextView
-            android:id="@+id/section_TV"
-            android:layout_width="0dp"
-            app:layout_constraintStart_toEndOf="@id/year_TV"
-            app:layout_constraintEnd_toEndOf="@id/branchLayout"
-            app:layout_constraintTop_toBottomOf="@id/txt4"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:text="CS-2"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/sections"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
             android:text="Enrollment"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/year_TV"
             app:layout_constraintStart_toStartOf="@id/enrollmentED"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/yearLayput" />
 
         <EditText
             android:id="@+id/enrollmentED"

@@ -104,6 +104,20 @@ public class RegisterFragment_2 extends Fragment {
         binding.branchSpinner.setAdapter(branchAdapter);
         //----------//
 
+        // ----Year Spinner-----//
+        ArrayAdapter<String> yearAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
+        yearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.yearSpinner.setAdapter(yearAdapter);
+        //----------//
+
+        // ----Section Spinner-----//
+        ArrayAdapter<String> sectionAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.branch));
+        sectionAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.sectionSpinner.setAdapter(sectionAdapter);
+        //----------//
+
         // ----Graduation Year Spinner-----//
         ArrayAdapter<String> graduationYearAdapter= new ArrayAdapter<String>(getContext(),
                 R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
