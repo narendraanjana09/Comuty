@@ -2,11 +2,7 @@ package com.nsa.comuty.home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
-import androidx.navigation.NavOptionsBuilder;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.core.view.GravityCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -20,18 +16,20 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.ActivityHomeBinding;
 import com.nsa.comuty.databinding.AddPostEventLayoutBinding;
-import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
+import com.nsa.comuty.databinding.NewChatGroupLayoutBinding;
 import com.nsa.comuty.home.adapters.ViewPagerAdapter;
 import com.nsa.comuty.home.ui.ChatsFragment;
 import com.nsa.comuty.home.ui.EventFragment;
 import com.nsa.comuty.home.ui.ExploreFragment;
-import com.nsa.comuty.home.ui.FriendsFragment;
+import com.nsa.comuty.home.ui.MoreFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
     private AddPostEventLayoutBinding addPostEventLayoutBinding;
     private BottomSheetBehavior addPostEventSheetBehaviour;
+    private NewChatGroupLayoutBinding newChatGroupLayoutBinding;
+    private BottomSheetBehavior newChatGroupSheetBehaviour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +38,41 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setupAddEvent_Post();
+        setupNewChatGroup();
         setupViewPager();
         setupchatsMenu();
+        binding.profileImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.drawerRootLayout.openDrawer(GravityCompat.END);
+            }
+        });
+
+    }
+
+    private void setupNewChatGroup() {
+
+        View view= binding.coordinator1.findViewById(R.id.new_chat_group_layout);
+        newChatGroupSheetBehaviour = BottomSheetBehavior.from(view);
+        newChatGroupLayoutBinding=NewChatGroupLayoutBinding.bind(view);
+        newChatGroupLayoutBinding.close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newChatGroupSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+        binding.addChatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newChatGroupSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
     }
 
     private void setupAddEvent_Post() {
-        View countryCodeView= binding.coordinator1.findViewById(R.id.add_post_event_layout);
-        addPostEventSheetBehaviour = BottomSheetBehavior.from(countryCodeView);
-        addPostEventLayoutBinding=AddPostEventLayoutBinding.bind(countryCodeView);
+        View view= binding.coordinator1.findViewById(R.id.add_post_event_layout);
+        addPostEventSheetBehaviour = BottomSheetBehavior.from(view);
+        addPostEventLayoutBinding=AddPostEventLayoutBinding.bind(view);
         addPostEventLayoutBinding.close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_chat:
                         binding.viewPager.setCurrentItem(2,true);
                         break;
-                    case R.id.nav_friends:
+                    case R.id.nav_more:
 
                         binding.viewPager.setCurrentItem(3,true);
                         break;
@@ -132,7 +157,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new ExploreFragment());
         adapter.addFragment(new EventFragment());
         adapter.addFragment(new ChatsFragment());
-        adapter.addFragment(new FriendsFragment());
+        adapter.addFragment(new MoreFragment());
         binding.viewPager.setAdapter(adapter);
     }
 
@@ -142,18 +167,20 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.nav_event:binding.titleTxt.setText("Events");
                 break;
-            case R.id.nav_friends:binding.titleTxt.setText("Friends");
+            case R.id.nav_more:binding.titleTxt.setText("More");
                 break;
             case R.id.nav_chat:binding.titleTxt.setText("Chats");
                 break;
 
         }
         if(binding.bottomNavigation.getSelectedItemId()==R.id.nav_chat){
-            binding.profileImage.setVisibility(View.GONE);
+            binding.profileImage1.setVisibility(View.GONE);
             binding.chatsLayout.setVisibility(View.VISIBLE);
+            binding.addChatButton.setVisibility(View.VISIBLE);
         }else{
-            binding.profileImage.setVisibility(View.VISIBLE);
+            binding.profileImage1.setVisibility(View.VISIBLE);
             binding.chatsLayout.setVisibility(View.GONE);
+            binding.addChatButton.setVisibility(View.GONE);
         }
     }
 

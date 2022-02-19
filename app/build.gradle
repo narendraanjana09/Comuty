@@ -61,6 +61,12 @@ dependencies {
     //shimmer effect
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    // for otp view
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
+    // to pick image
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+
 
 
 

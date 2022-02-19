@@ -17,9 +17,9 @@
         android:icon="@drawable/chat"
         android:title="Chats" />
     <item
-        android:id="@+id/nav_friends"
-        android:icon="@drawable/friends"
-        android:title="Friends" />
+        android:id="@+id/nav_more"
+        android:icon="@drawable/more_icon"
+        android:title="More" />
 
 
 </menu>
