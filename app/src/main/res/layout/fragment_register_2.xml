@@ -335,27 +335,28 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/graduationYearLayout"
             app:layout_constraintTop_toBottomOf="@+id/graduationYearLayout" />
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/submitBTN"
-            android:layout_width="0dp"
-            app:layout_constraintWidth_percent="0.4"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:textColor="@color/text_color"
-            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/button_bg1"
             android:elevation="10dp"
+            android:gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textSize="22sp"
             app:elevation="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt8"
             app:icon="@drawable/ic_baseline_done_24"
             app:iconGravity="end"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt8"
+            app:layout_constraintWidth_percent="0.4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
