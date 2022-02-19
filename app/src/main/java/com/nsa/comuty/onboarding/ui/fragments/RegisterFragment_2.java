@@ -15,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.nsa.comuty.R;
@@ -96,6 +97,20 @@ public class RegisterFragment_2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
 
+        //----Branch Spinner-----//
+        ArrayAdapter<String> branchAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.branch));
+        branchAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.branchSpinner.setAdapter(branchAdapter);
+        //----------//
+
+        // ----Graduation Year Spinner-----//
+        ArrayAdapter<String> graduationYearAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
+        graduationYearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.graduationYearSpinner.setAdapter(graduationYearAdapter);
+        //----------//
+
         View collegeNameView= binding.coordinator.findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(collegeNameView);
         collegeNameBinding=CountryCodeLayoutBinding.bind(collegeNameView);
@@ -170,6 +185,8 @@ public class RegisterFragment_2 extends Fragment {
             }
         });
     }}
+
+// For Spacing between Recycler view items
 class Space extends RecyclerView.ItemDecoration{
     int space;
 
