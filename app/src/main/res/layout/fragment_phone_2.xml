@@ -4,7 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".onboarding.ui.fragments.PhoneFragment_2">
+ >
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        >
+
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -45,38 +53,35 @@
 
 
        </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/topLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:fillViewport="true"
-        android:layout_height="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/topLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
         >
        <com.airbnb.lottie.LottieAnimationView
            android:id="@+id/animationView"
            android:layout_width="match_parent"
            android:layout_height="0dp"
            app:layout_constraintHeight_percent="0.4"
+           android:layout_marginTop="20dp"
            app:lottie_rawRes="@raw/verify"
            app:lottie_autoPlay="true"
            app:lottie_loop="true"
-           app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintBottom_toTopOf="@id/txt1"
+           app:layout_constraintTop_toBottomOf="@id/verify_OTP_BTN"
            />
        <TextView
            android:id="@+id/txt1"
            android:text="Enter the verification code"
            android:textColor="@color/text_color"
            android:textSize="25sp"
+           android:visibility="gone"
            android:textStyle="bold"
+           android:layout_marginTop="10dp"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintBottom_toTopOf="@id/txt2"
-           app:layout_constraintTop_toBottomOf="@id/animationView"
+           app:layout_constraintTop_toTopOf="parent"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
        <TextView
@@ -88,7 +93,7 @@
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintTop_toBottomOf="@id/txt1"
-           app:layout_constraintBottom_toTopOf="@id/changeNumber"
+           android:layout_marginTop="20dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
        <TextView
@@ -101,7 +106,7 @@
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintTop_toBottomOf="@id/txt2"
-           app:layout_constraintBottom_toTopOf="@id/otpLayout"
+           android:layout_marginTop="10dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
 
@@ -110,7 +115,7 @@
             android:layout_width="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/txt3"
+           android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/changeNumber"
             android:layout_height="wrap_content"
             android:textColor="@color/text_color"
@@ -132,7 +137,7 @@
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintTop_toBottomOf="@id/otpLayout"
-           app:layout_constraintBottom_toTopOf="@id/resendBTN"
+           android:layout_marginTop="20dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
        <TextView
@@ -145,7 +150,7 @@
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintTop_toBottomOf="@id/txt3"
-           app:layout_constraintBottom_toTopOf="@id/verify_OTP_BTN"
+           android:layout_marginTop="10dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -154,8 +159,9 @@
            android:layout_height="wrap_content"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintWidth_percent="0.6"
+           android:layout_marginBottom="20dp"
+           android:layout_marginTop="20dp"
            android:textColor="@color/text_color"
            android:enabled="false"
            android:alpha="0.5"
@@ -168,7 +174,8 @@
            app:layout_constraintVertical_bias="0.8"
            />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+
    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

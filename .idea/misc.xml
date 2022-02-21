@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable-v24/round_bg.xml" value="0.2395" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable-v24/round_corn.xml" value="0.2395" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable-v24/round_corner.xml" value="0.2395" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable-v24/shimmer_bg.xml" value="0.169" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/bg_window.xml" value="0.1765" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/dash.xml" value="0.254" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/dash_line.xml" value="0.1825" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.239" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_baseline_cast_for_education_24.xml" value="0.1865" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_line_path_1.xml" value="0.239" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/ic_line_path_2.xml" value="0.239" />
@@ -14,8 +18,9 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/item_selector.xml" value="0.169" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/more_rv_item_bg.xml" value="0.2185" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/otp_bg.xml" value="0.1825" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/progress_bg.xml" value="0.2245" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/drawable/round_corner.xml" value="0.169" />
-        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/accept_terms_dialog.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/accept_terms_dialog.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_bottom_sheet_example.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_home.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/activity_main.xml" value="0.23333333333333334" />
@@ -28,6 +33,7 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_country_code_list_dialog_item.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_event.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_explore.xml" value="0.2484375" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_feedback.xml" value="0.2328125" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_friends.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_home.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_intro_screens.xml" value="0.176" />
@@ -40,13 +46,18 @@
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_register_2.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success.xml" value="0.1569078947368421" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success_register.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_success_sign_in.xml" value="0.2328125" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/fragment_welcome.xml" value="0.14703947368421053" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/navigation_header_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/new_chat_group_layout.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/persistent_bottomsheet.xml" value="0.14703947368421053" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/progress_layout.xml" value="0.2328125" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/screens_layout.xml" value="0.1569078947368421" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_chat.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_chat_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_event.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_event_item.xml" value="0.2484375" />
+        <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_explore.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/layout/shimmer_explore_item.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/menu/bottom_navigation.xml" value="0.2484375" />
         <entry key="..\:/Users/Asus/Desktop/GooglePlayApps/Comuty/app/src/main/res/menu/chats_menu.xml" value="0.2484375" />

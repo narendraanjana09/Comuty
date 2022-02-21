@@ -1,7 +1,9 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import static com.nsa.comuty.onboarding.extra.Keys.GO_TO;
 import static com.nsa.comuty.onboarding.extra.Keys.INTRO_SCREENS_DONE;
-import static com.nsa.comuty.onboarding.extra.Keys.SIGN_IN_DONE;
+import static com.nsa.comuty.onboarding.extra.Keys.REGISTER;
+
 
 import android.os.Bundle;
 
@@ -64,13 +66,13 @@ public class IntroScreensFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
-        if(new SavedText(getContext()).getText(SIGN_IN_DONE).equals("yes")){
+
+        if(new SavedText(getContext()).getText(GO_TO).equals(REGISTER)){
             goToRegister();
         }else{
         if(new SavedText(getContext()).getText(INTRO_SCREENS_DONE).equals("1")){
             goToWelcome();
-        }
-        }
+        }}
         adapter=new ScreensAdapter(getContext());
         binding.viewPager.setAdapter(adapter);
         binding.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

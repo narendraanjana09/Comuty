@@ -1,5 +1,8 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import static com.nsa.comuty.onboarding.extra.Keys.GO_TO;
+import static com.nsa.comuty.onboarding.extra.Keys.HOME;
+
 import android.graphics.Rect;
 import android.os.Bundle;
 
@@ -22,6 +25,7 @@ import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
 import com.nsa.comuty.databinding.FragmentRegister2Binding;
 import com.nsa.comuty.onboarding.adapters.CollegeNameAdapter;
 import com.nsa.comuty.onboarding.extra.Keyboard;
+import com.nsa.comuty.onboarding.extra.SavedText;
 import com.nsa.comuty.onboarding.interfaces.CollegeClickListener;
 import com.nsa.comuty.onboarding.models.CollegeModel;
 
@@ -117,7 +121,7 @@ public class RegisterFragment_2 extends Fragment {
         binding.submitBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_registerFragment_2_to_registerSuccessFragment);
+                new SavedText(getContext()).setText(GO_TO,HOME);
             }
         });
         initCollegeNameLayout();

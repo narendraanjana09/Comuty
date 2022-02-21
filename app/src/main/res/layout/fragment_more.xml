@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.ui.MoreFragment">
+    tools:context=".home.ui.more.MoreFragment">
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recycler_view"
       android:layout_width="match_parent"
       android:layout_margin="10dp"
-      android:layoutAnimation="@anim/layout_animation_right_to_left"
       android:layout_height="match_parent"/>
 
 </FrameLayout>
+
+<!--    android:layoutAnimation="@anim/layout_animation_right_to_left"-->

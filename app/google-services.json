@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "388889045704",
+    "project_id": "comuty-7dd70",
+    "storage_bucket": "comuty-7dd70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388889045704:android:bbb97878482b63513193fd",
+        "android_client_info": {
+          "package_name": "com.nsa.comuty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388889045704-qjsfjfjf4aue89pdvse2hhigndvmtv4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nsa.comuty",
+            "certificate_hash": "fa047d002970f1c20ad9f73e2111480e568b2737"
+          }
+        },
+        {
+          "client_id": "388889045704-cldf89i9s23vg6o040lh59hpdjoggp02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGX60_PzyWzoe2A5A6Qvs0EtwZrWysbaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388889045704-cldf89i9s23vg6o040lh59hpdjoggp02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.nsa.comuty.home.ui;
+package com.nsa.comuty.home.ui.explore;
 
 import android.os.Bundle;
 
@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.FragmentExploreBinding;
 import com.nsa.comuty.databinding.FragmentPhone1Binding;
 

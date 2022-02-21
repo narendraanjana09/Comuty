@@ -1,28 +1,20 @@
-package com.nsa.comuty.home.adapters;
+package com.nsa.comuty.home.ui.more.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatCheckBox;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.FragmentMoreRvItemBinding;
+import com.nsa.comuty.home.ui.more.interfaces.OnMoreClickListener;
 import com.nsa.comuty.home.models.MoreModel;
 
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
     private Context context;
@@ -67,7 +59,7 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
             itemView.bottomCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onClick(list.get(getAbsoluteAdapterPosition()));
+                    listener.onClick(getAbsoluteAdapterPosition());
                 }
             });
         }

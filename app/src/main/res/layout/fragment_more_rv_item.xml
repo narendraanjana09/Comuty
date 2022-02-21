@@ -26,7 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_baseline_search_24"
-            app:tint="@color/text_color"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@id/title_tv"
             app:layout_constraintTop_toTopOf="parent"

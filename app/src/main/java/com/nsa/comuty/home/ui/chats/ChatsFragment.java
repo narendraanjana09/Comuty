@@ -1,4 +1,4 @@
-package com.nsa.comuty.home.ui;
+package com.nsa.comuty.home.ui.chats;
 
 import android.os.Bundle;
 

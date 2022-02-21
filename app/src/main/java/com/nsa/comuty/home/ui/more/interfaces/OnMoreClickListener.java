@@ -1,9 +1,9 @@
-package com.nsa.comuty.home.adapters;
+package com.nsa.comuty.home.ui.more.interfaces;
 
 
 import com.nsa.comuty.home.models.MoreModel;
 
 public interface OnMoreClickListener {
-    void onClick(MoreModel model);
+    void onClick(int i);
 
 }

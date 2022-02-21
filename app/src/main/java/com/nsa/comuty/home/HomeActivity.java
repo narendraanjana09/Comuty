@@ -1,11 +1,15 @@
 package com.nsa.comuty.home;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
-import androidx.viewpager.widget.ViewPager;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.Navigation;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
@@ -17,11 +21,6 @@ import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.ActivityHomeBinding;
 import com.nsa.comuty.databinding.AddPostEventLayoutBinding;
 import com.nsa.comuty.databinding.NewChatGroupLayoutBinding;
-import com.nsa.comuty.home.adapters.ViewPagerAdapter;
-import com.nsa.comuty.home.ui.ChatsFragment;
-import com.nsa.comuty.home.ui.EventFragment;
-import com.nsa.comuty.home.ui.ExploreFragment;
-import com.nsa.comuty.home.ui.MoreFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -30,12 +29,36 @@ public class HomeActivity extends AppCompatActivity {
     private BottomSheetBehavior addPostEventSheetBehaviour;
     private NewChatGroupLayoutBinding newChatGroupLayoutBinding;
     private BottomSheetBehavior newChatGroupSheetBehaviour;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        navController= Navigation.findNavController(this,R.id.navHostFragment);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                switch(navDestination.getId()){
+                    case R.id.exploreFragment:
+                        showBottomNaviagtion();
+                        break;
+                    case R.id.eventFragment:
+                        showBottomNaviagtion();
+                        break;
+                    case R.id.chatsFragment:
+                        showBottomNaviagtion();
+                        break;
+                    case R.id.moreFragment:
+
+                        showBottomNaviagtion();
+                        break;
+                    default:
+                        hideBottomNaviagtion();
+                }
+            }
+        });
 
         setupAddEvent_Post();
         setupNewChatGroup();
@@ -48,6 +71,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void hideBottomNaviagtion() {
+        binding.motionLayout.transitionToState(R.id.end);
+    }
+
+    private void showBottomNaviagtion() {
+        binding.motionLayout.transitionToStart();
     }
 
     private void setupNewChatGroup() {
@@ -103,88 +134,58 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
+        binding.bottomNavigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                log("menu clicked");
+            }
+        });
         binding.bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch(item.getItemId()){
                     case R.id.nav_explore:
-
-                        binding.viewPager.setCurrentItem(0,true);
+                        binding.titleTxt.setText("Explore");
+                        navController.navigate(R.id.exploreFragment);
                         break;
                     case R.id.nav_event:
-
-                        binding.viewPager.setCurrentItem(1,true);
+                        binding.titleTxt.setText("Events");
+                        navController.navigate(R.id.eventFragment);
                         break;
                     case R.id.nav_chat:
-                        binding.viewPager.setCurrentItem(2,true);
+                        binding.titleTxt.setText("Chats");
+                        navController.navigate(R.id.chatsFragment);
                         break;
                     case R.id.nav_more:
-
-                        binding.viewPager.setCurrentItem(3,true);
+                        binding.titleTxt.setText("More");
+                        navController.navigate(R.id.moreFragment);
                         break;
                     default:addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
                     return false;
                 }
-                checkToolbar();
+                checkToolbar(item.getItemId());
                 return true;
             }
-        });
-        binding.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        });    }
 
-            }
+    private void checkToolbar(int itemId) {
 
-            @Override
-            public void onPageSelected(int position) {
-                if(position>1){
-                    binding.bottomNavigation.getMenu().getItem(position+1).setChecked(true);
-
-                }else {
-                    binding.bottomNavigation.getMenu().getItem(position).setChecked(true);
-                }
-                checkToolbar();
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ExploreFragment());
-        adapter.addFragment(new EventFragment());
-        adapter.addFragment(new ChatsFragment());
-        adapter.addFragment(new MoreFragment());
-        binding.viewPager.setAdapter(adapter);
-    }
-
-    private void checkToolbar() {
-        switch (binding.bottomNavigation.getSelectedItemId()){
-            case R.id.nav_explore: binding.titleTxt.setText("Explore");
-                break;
-            case R.id.nav_event:binding.titleTxt.setText("Events");
-                break;
-            case R.id.nav_more:binding.titleTxt.setText("More");
-                break;
-            case R.id.nav_chat:binding.titleTxt.setText("Chats");
-                break;
-
-        }
-        if(binding.bottomNavigation.getSelectedItemId()==R.id.nav_chat){
+        if(itemId==R.id.nav_chat){
             binding.profileImage1.setVisibility(View.GONE);
             binding.chatsLayout.setVisibility(View.VISIBLE);
-            binding.addChatButton.setVisibility(View.VISIBLE);
+            binding.motionLayout.transitionToState(R.id.end_chats);
         }else{
+            binding.motionLayout.transitionToStart();
             binding.profileImage1.setVisibility(View.VISIBLE);
             binding.chatsLayout.setVisibility(View.GONE);
-            binding.addChatButton.setVisibility(View.GONE);
         }
     }
 
     private void showToast(String message) {
         Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
+    }
+    private void log(String message) {
+        Log.e("HomeLog", "log: "+message );
     }
 }

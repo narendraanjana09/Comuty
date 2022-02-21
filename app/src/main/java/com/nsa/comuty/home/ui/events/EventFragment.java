@@ -1,4 +1,4 @@
-package com.nsa.comuty.home.ui;
+package com.nsa.comuty.home.ui.events;
 
 import android.os.Bundle;
 

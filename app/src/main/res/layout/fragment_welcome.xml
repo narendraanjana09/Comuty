@@ -83,6 +83,7 @@
             app:layout_constraintBottom_toTopOf="@id/with_phone"
             app:icon="@drawable/facebook"
             app:iconTint="@null"
+            android:visibility="gone"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textColor="@color/text_color"

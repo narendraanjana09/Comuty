@@ -1,32 +1,27 @@
-package com.nsa.comuty.home.ui;
+package com.nsa.comuty.home.ui.more;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.nsa.comuty.R;
+import com.nsa.comuty.databinding.FragmentFeedbackBinding;
 import com.nsa.comuty.databinding.FragmentMoreBinding;
-import com.nsa.comuty.databinding.FragmentPhone2Binding;
-import com.nsa.comuty.home.adapters.MoreAdapter;
-import com.nsa.comuty.home.adapters.OnMoreClickListener;
-import com.nsa.comuty.home.models.MoreModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MoreFragment#newInstance} factory method to
+ * Use the {@link FeedbackFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MoreFragment extends Fragment {
+public class FeedbackFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +32,7 @@ public class MoreFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MoreFragment() {
+    public FeedbackFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +42,11 @@ public class MoreFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MoreFragment.
+     * @return A new instance of fragment FeedbackFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MoreFragment newInstance(String param1, String param2) {
-        MoreFragment fragment = new MoreFragment();
+    public static FeedbackFragment newInstance(String param1, String param2) {
+        FeedbackFragment fragment = new FeedbackFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,31 +63,25 @@ public class MoreFragment extends Fragment {
         }
     }
 
-    private FragmentMoreBinding binding;
+    private FragmentFeedbackBinding binding;
+    private NavController navController;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= FragmentMoreBinding
+        binding= FragmentFeedbackBinding
                 .inflate(inflater,container,false);
         return binding.getRoot();
     }
 
-    private MoreAdapter adapter;
-    private List<MoreModel> list;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        list=new ArrayList<>();
-        list.add(new MoreModel("Search User",getContext().getDrawable(R.drawable.ic_baseline_search_24)));
-        list.add(new MoreModel("Settings",getContext().getDrawable(R.drawable.ic_baseline_settings_24)));
-        adapter=new MoreAdapter(getContext(), list, new OnMoreClickListener() {
+        navController= Navigation.findNavController(view);
+        binding.backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(MoreModel model) {
-
+            public void onClick(View view) {
+                navController.popBackStack();
             }
         });
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        binding.recyclerView.setAdapter(adapter);
-
     }
 }

@@ -2,4 +2,7 @@
     <string name="app_name">Comuty</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="google_signin_key">388889045704-8joa2f33hb9459efcvduj5r971bk2mki.apps.googleusercontent.com</string>
+    <string name="truecaller_app_key">b07Vfe5ff91abc21d43e8b526ab18007b4a97</string>
 </resources>
