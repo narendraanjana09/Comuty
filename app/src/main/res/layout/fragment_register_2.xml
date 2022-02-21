@@ -105,113 +105,151 @@
             android:drawableLeft="@drawable/college"
             android:drawablePadding="20dp"
             android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
             android:text="Branch*"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/college_name_TV"
-            app:layout_constraintStart_toStartOf="@id/branch_TV"
-            />
+            app:layout_constraintStart_toStartOf="@+id/branchLayout"
+            app:layout_constraintTop_toBottomOf="@id/college_name_TV" />
 
-        <TextView
-            android:id="@+id/branch_TV"
+        <LinearLayout
+            android:id="@+id/branchLayout"
             android:layout_width="0dp"
-            app:layout_constraintWidth_percent="0.8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt3"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
             android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:text="Computer Science Engineering"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/branch"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/college_name_TV"
+            app:layout_constraintStart_toStartOf="@+id/college_name_TV"
+            app:layout_constraintTop_toBottomOf="@+id/txt3">
+
+            <TextView
+                android:id="@+id/branch_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/branch"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <Spinner
+                android:id="@+id/branchSpinner"
+                android:layout_width="305dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:dropDownVerticalOffset="35dp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/txt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
             android:text="Year*"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/branch_TV"
-            app:layout_constraintStart_toStartOf="@id/year_TV"
-            />
+            app:layout_constraintStart_toStartOf="@+id/yearLayput"
+            app:layout_constraintTop_toBottomOf="@+id/branchLayout" />
 
-        <TextView
-            android:id="@+id/year_TV"
+        <LinearLayout
+            android:id="@+id/yearLayput"
             android:layout_width="0dp"
-            app:layout_constraintStart_toStartOf="@id/branch_TV"
-            app:layout_constraintTop_toBottomOf="@id/txt4"
-            app:layout_constraintEnd_toStartOf="@id/section_TV"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginEnd="30dp"
-            android:gravity="center"
-            android:text="1"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/sectionLayout"
+            app:layout_constraintStart_toStartOf="@+id/branchLayout"
+            app:layout_constraintTop_toBottomOf="@+id/txt4">
+
+            <TextView
+                android:id="@+id/year_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/yearSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownVerticalOffset="30dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/branchLayout"
+            app:layout_constraintStart_toEndOf="@id/yearLayput"
+            app:layout_constraintTop_toBottomOf="@id/txt5">
+
+            <TextView
+                android:id="@+id/section_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/sections"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sectionSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:dropDownVerticalOffset="30dp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/txt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
             android:text="Section"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/branch_TV"
-            app:layout_constraintStart_toStartOf="@id/section_TV"
-            />
+            app:layout_constraintStart_toStartOf="@id/sectionLayout"
+            app:layout_constraintTop_toBottomOf="@+id/branchLayout" />
 
-        <TextView
-            android:id="@+id/section_TV"
-            android:layout_width="0dp"
-            app:layout_constraintStart_toEndOf="@id/year_TV"
-            app:layout_constraintEnd_toEndOf="@id/branch_TV"
-            app:layout_constraintTop_toBottomOf="@id/txt4"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:text="CS-2"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/sections"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
             android:text="Enrollment"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/year_TV"
             app:layout_constraintStart_toStartOf="@id/enrollmentED"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/yearLayput" />
 
         <EditText
             android:id="@+id/enrollmentED"
@@ -231,69 +269,84 @@
             android:drawablePadding="20dp"
             android:backgroundTint="@color/text_color"
             android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/txt7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
             android:text="Graduation Year"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintTop_toBottomOf="@id/enrollmentED"
-            app:layout_constraintStart_toStartOf="@id/graduation_year_TV"
-            />
+            app:layout_constraintStart_toStartOf="@+id/graduationYearLayout"
+            app:layout_constraintTop_toBottomOf="@id/enrollmentED" />
+
+        <LinearLayout
+            android:id="@+id/graduationYearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/enrollmentED"
+            app:layout_constraintStart_toStartOf="@+id/enrollmentED"
+            app:layout_constraintTop_toBottomOf="@+id/txt7"
+            app:layout_constraintWidth_percent="0.8">
+
+            <TextView
+                android:id="@+id/graduation_year_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/graduation"
+                android:drawablePadding="20dp"
+                android:drawableTint="@color/text_color"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <Spinner
+                android:id="@+id/graduationYearSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:dropDownVerticalOffset="0dp" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/graduation_year_TV"
-            android:layout_width="0dp"
-            app:layout_constraintWidth_percent="0.8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt7"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
-            android:ellipsize="end"
-            android:layout_marginTop="10dp"
-            android:maxLines="1"
-            android:gravity="center"
-            android:text="2023"
-            android:drawableTint="@color/text_color"
-            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-            android:drawableLeft="@drawable/graduation"
-            android:drawablePadding="20dp"
-            android:layout_height="wrap_content"/>
-        <TextView
             android:id="@+id/txt8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="* is mandatory"
             android:textColor="@color/text_color"
-            android:textSize="16sp"
             android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="@id/graduation_year_TV"
-            app:layout_constraintTop_toBottomOf="@id/graduation_year_TV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/graduationYearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/graduationYearLayout" />
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/submitBTN"
-            android:layout_width="0dp"
-            app:layout_constraintWidth_percent="0.4"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:textColor="@color/text_color"
-            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/button_bg1"
             android:elevation="10dp"
+            android:gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textSize="22sp"
             app:elevation="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt8"
             app:icon="@drawable/ic_baseline_done_24"
             app:iconGravity="end"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt8"
+            app:layout_constraintWidth_percent="0.4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,30 @@
 
     <string name="google_signin_key">388889045704-8joa2f33hb9459efcvduj5r971bk2mki.apps.googleusercontent.com</string>
     <string name="truecaller_app_key">b07Vfe5ff91abc21d43e8b526ab18007b4a97</string>
+
+    <string-array name="graduationYear">
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+    </string-array>
+    <string-array name="studyYear">
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Fourth</item>
+    </string-array>
+    <string-array name="section">
+        <item>A-1</item>
+        <item>A-2</item>
+        <item>A-3</item>
+        <item>A-4</item>
+    </string-array>
+    <string-array name="branch">
+        <item>CSE</item>
+        <item>IT</item>
+        <item>ME</item>
+        <item>CE</item>
+        <item>EC</item>
+    </string-array>
 </resources>

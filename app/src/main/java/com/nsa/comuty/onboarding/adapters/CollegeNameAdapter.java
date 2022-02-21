@@ -41,8 +41,6 @@ public class CollegeNameAdapter extends RecyclerView.Adapter<CollegeNameAdapter.
     private void setData() {
         list.clear();
         list.add(new CollegeModel("Indore Institute of Science and Technology"));
-        list.add(new CollegeModel("IIST"));
-        list.add(new CollegeModel("DAVV"));
         searchList.addAll(list);
     }
     @NonNull

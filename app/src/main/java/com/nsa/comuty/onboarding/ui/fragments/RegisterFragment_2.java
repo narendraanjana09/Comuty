@@ -16,8 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.nsa.comuty.R;
@@ -100,6 +103,67 @@ public class RegisterFragment_2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
 
+        //----Branch Spinner-----//
+        ArrayAdapter<String> branchAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.branch));
+        branchAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.branchSpinner.setAdapter(branchAdapter);
+
+        binding.branchSpinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Keyboard.hide(view);
+                return false;
+            }
+        });
+
+        //----------//
+
+        // ----Year Spinner-----//
+        ArrayAdapter<String> yearAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
+        yearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.yearSpinner.setAdapter(yearAdapter);
+
+        binding.yearSpinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Keyboard.hide(view);
+                return false;
+            }
+        });
+        //----------//
+
+        // ----Section Spinner-----//
+        ArrayAdapter<String> sectionAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.section));
+        sectionAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.sectionSpinner.setAdapter(sectionAdapter);
+
+        binding.sectionSpinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Keyboard.hide(view);
+                return false;
+            }
+        });
+        //----------//
+
+        // ----Graduation Year Spinner-----//
+        ArrayAdapter<String> graduationYearAdapter= new ArrayAdapter<String>(getContext(),
+                R.layout.country_code_item, getResources().getStringArray(R.array.studyYear));
+        graduationYearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        binding.graduationYearSpinner.setAdapter(graduationYearAdapter);
+
+        binding.graduationYearSpinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Keyboard.hide(view);
+                return false;
+            }
+        });
+        //----------//
+
         View collegeNameView= binding.coordinator.findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(collegeNameView);
         collegeNameBinding=CountryCodeLayoutBinding.bind(collegeNameView);
@@ -174,6 +238,8 @@ public class RegisterFragment_2 extends Fragment {
             }
         });
     }}
+
+// For Spacing between Recycler view items
 class Space extends RecyclerView.ItemDecoration{
     int space;
 
