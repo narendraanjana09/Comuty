@@ -121,7 +121,7 @@ public class RegisterFragment_2 extends Fragment {
 
         // ----Year Spinner-----//
         ArrayAdapter<String> yearAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
+                R.layout.country_code_item, getResources().getStringArray(R.array.studyYear));
         yearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.yearSpinner.setAdapter(yearAdapter);
 
@@ -151,7 +151,7 @@ public class RegisterFragment_2 extends Fragment {
 
         // ----Graduation Year Spinner-----//
         ArrayAdapter<String> graduationYearAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.studyYear));
+                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
         graduationYearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.graduationYearSpinner.setAdapter(graduationYearAdapter);
 
