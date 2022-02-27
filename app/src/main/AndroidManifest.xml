@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.nsa.comuty">
 
-    <uses-sdk tools:overrideLibrary="com.truecaller.android.sdk"/>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -19,27 +17,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comuty">
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".trail_for_code.TrailActivity"
             android:exported="true" >
 
         </activity>
         <activity
+            android:name=".home.HomeActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".onboarding.ui.OnBoardingActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            />
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            >
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>
-        </activity>
-
-        <meta-data android:name="com.truecaller.android.sdk.PartnerKey" android:value="@string/truecaller_app_key"/>
+            android:windowSoftInputMode="stateVisible|adjustPan"></activity>
     </application>
 
 </manifest>

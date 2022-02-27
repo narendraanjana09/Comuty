@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/group_gif"
         app:lottie_rawRes="@raw/new_event"
+        android:layout_marginTop="-30dp"
         android:layout_marginStart="10dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -45,7 +46,7 @@
         android:src="@drawable/ic_line_path_1"
         />
     <androidx.cardview.widget.CardView
-        android:id="@+id/new_chat_btn"
+        android:id="@+id/new_events_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/path1"
@@ -71,7 +72,7 @@
         android:id="@+id/info1"
         android:text="* Event might be a Hackathon or any possible\n   event in your college or somewhere"
         android:textColor="@color/text_hint_color"
-        app:layout_constraintTop_toBottomOf="@id/new_chat_btn"
+        app:layout_constraintTop_toBottomOf="@id/new_events_btn"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
@@ -119,7 +120,7 @@
         />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/new_group_btn"
+        android:id="@+id/new_post_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/path2"
@@ -145,7 +146,7 @@
         android:id="@+id/info2"
         android:text="* Post might be on your latest achievements or\n   your new thoughts "
         android:textColor="@color/text_hint_color"
-        app:layout_constraintTop_toBottomOf="@id/new_group_btn"
+        app:layout_constraintTop_toBottomOf="@id/new_post_btn"
        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"

@@ -147,6 +147,7 @@
                 android:layout_width="305dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/text_color"
                 android:dropDownVerticalOffset="35dp" />
         </LinearLayout>
 
@@ -190,6 +191,7 @@
                 android:id="@+id/yearSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/text_color"
                 android:dropDownVerticalOffset="30dp"
                 android:layout_weight="1" />
 
@@ -223,6 +225,7 @@
                 android:id="@+id/sectionSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/text_color"
                 android:layout_weight="1"
                 android:dropDownVerticalOffset="30dp" />
         </LinearLayout>
@@ -311,6 +314,7 @@
                 android:id="@+id/graduationYearSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/text_color"
                 android:layout_weight="1"
                 android:dropDownVerticalOffset="0dp" />
         </LinearLayout>

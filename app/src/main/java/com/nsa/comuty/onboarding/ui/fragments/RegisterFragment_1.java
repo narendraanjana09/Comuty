@@ -23,7 +23,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.FragmentPhone1Binding;
 import com.nsa.comuty.databinding.FragmentRegister1Binding;
@@ -82,6 +86,9 @@ public class RegisterFragment_1 extends Fragment {
 
     private FragmentRegister1Binding binding;
     private NavController navController;
+    public FirebaseUser fUser;
+    private GoogleSignInAccount account;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,7 +102,18 @@ public class RegisterFragment_1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-
+        fUser= FirebaseAuth.getInstance().getCurrentUser();
+        account= com.google.android.gms.auth.api.signin.GoogleSignIn.getLastSignedInAccount(getActivity());
+        if(account==null){
+            showToast("error");
+        }else{
+            binding.profileImageview.setScaleType(ImageView.ScaleType.FIT_XY);
+            binding.profileImageview.setImageTintList(null);
+            Glide.with(getContext())
+                    .load(account.getPhotoUrl())
+                    .into(binding.profileImageview);
+            binding.nameEd.setText(account.getDisplayName());
+        }
 
         binding.nextBTN.setOnClickListener(new View.OnClickListener() {
             @Override

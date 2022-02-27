@@ -3,6 +3,7 @@ package com.nsa.comuty.home;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -31,6 +32,23 @@ public class HomeActivity extends AppCompatActivity {
     private BottomSheetBehavior newChatGroupSheetBehaviour;
     private NavController navController;
 
+    private Long backPressedTime=0l;
+    private boolean navIsAtHome=true;
+    @Override
+    public void onBackPressed() {
+        if(navIsAtHome) {
+            if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                super.onBackPressed();
+                finish();
+            } else {
+                Toast.makeText(this, "Press back again to leave the app.", Toast.LENGTH_SHORT).show();
+            }
+            backPressedTime = System.currentTimeMillis();
+        }else{
+            super.onBackPressed();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +58,27 @@ public class HomeActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                navIsAtHome=true;
                 switch(navDestination.getId()){
                     case R.id.exploreFragment:
+                        log("explore fragment");
                         showBottomNaviagtion();
                         break;
                     case R.id.eventFragment:
+                        log("eventFragment");
                         showBottomNaviagtion();
                         break;
                     case R.id.chatsFragment:
+                        log("chatsFragment");
                         showBottomNaviagtion();
+                        checkToolbar(R.id.nav_chat);
                         break;
                     case R.id.moreFragment:
-
+                        log("moreFragment");
                         showBottomNaviagtion();
                         break;
                     default:
+                        navIsAtHome=false;
                         hideBottomNaviagtion();
                 }
             }
@@ -104,6 +128,22 @@ public class HomeActivity extends AppCompatActivity {
         View view= binding.coordinator1.findViewById(R.id.add_post_event_layout);
         addPostEventSheetBehaviour = BottomSheetBehavior.from(view);
         addPostEventLayoutBinding=AddPostEventLayoutBinding.bind(view);
+        addPostEventLayoutBinding.newPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.motionLayout.transitionToStart();
+                addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                navController.navigate(R.id.newPostFragment);
+            }
+        });
+        addPostEventLayoutBinding.newEventsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.motionLayout.transitionToStart();
+                addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                navController.navigate(R.id.newEventFragment);
+            }
+        });
         addPostEventLayoutBinding.close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,12 +174,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
-        binding.bottomNavigation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                log("menu clicked");
-            }
-        });
+
         binding.bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -164,13 +199,19 @@ public class HomeActivity extends AppCompatActivity {
                     default:addPostEventSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
                     return false;
                 }
-                checkToolbar(item.getItemId());
+
+                    checkToolbar(item.getItemId());
+
+
                 return true;
             }
-        });    }
+        });
+
+    }
+
+
 
     private void checkToolbar(int itemId) {
-
         if(itemId==R.id.nav_chat){
             binding.profileImage1.setVisibility(View.GONE);
             binding.chatsLayout.setVisibility(View.VISIBLE);
@@ -180,7 +221,10 @@ public class HomeActivity extends AppCompatActivity {
             binding.profileImage1.setVisibility(View.VISIBLE);
             binding.chatsLayout.setVisibility(View.GONE);
         }
+
+
     }
+
 
     private void showToast(String message) {
         Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
