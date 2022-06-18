@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:indeterminateTint="@color/button_bg1"
         android:layout_height="wrap_content"/>
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/textview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

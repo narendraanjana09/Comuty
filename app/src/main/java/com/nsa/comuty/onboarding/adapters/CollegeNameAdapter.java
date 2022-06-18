@@ -1,6 +1,7 @@
 package com.nsa.comuty.onboarding.adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +9,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.CountryCodeItemBinding;
 import com.nsa.comuty.onboarding.interfaces.CollegeClickListener;
 import com.nsa.comuty.onboarding.models.CollegeModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CollegeNameAdapter extends RecyclerView.Adapter<CollegeNameAdapter.ViewHolder> {
@@ -38,9 +42,27 @@ public class CollegeNameAdapter extends RecyclerView.Adapter<CollegeNameAdapter.
 
     public void setListener(CollegeClickListener listener) { this.listener = listener; }
 
+
+
     private void setData() {
         list.clear();
-        list.add(new CollegeModel("Indore Institute of Science and Technology"));
+        for(String s:context.getResources().getStringArray(R.array.colleges)){
+            s=s.replace("/","_");
+            s=s.replace("-","_");
+            s=s.replace(" ","_");
+            s=s.replace(".","_");
+            s=s.replace("#","_");
+            s=s.replace("[","_");
+            s=s.replace("]","_");
+            s=s.replace("$","_");
+
+        list.add(new CollegeModel(s.toUpperCase()));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Collections.sort(list, Comparator.comparing(CollegeModel::getCollegeName));
+        }else{
+            Collections.sort(list,(f1, f2)->{return f1.getCollegeName().compareTo(f2.getCollegeName());});
+        }
         searchList.addAll(list);
     }
     @NonNull

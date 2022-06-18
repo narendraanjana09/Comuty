@@ -30,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <TextView
+            android:fontFamily="@font/kalam"
             android:id="@+id/skipbtn"
             android:text="skip"
             android:visibility="gone"
@@ -71,7 +72,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <TextView
+                    <TextView android:fontFamily="@font/kalam"
                         android:id="@+id/one"
                         android:text="Begin"
                         android:textColor="@color/text_color"
@@ -121,7 +122,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <TextView
+                    <TextView android:fontFamily="@font/kalam"
                         android:id="@+id/one1"
                         android:text="Start"
                         android:textColor="@color/text_color"

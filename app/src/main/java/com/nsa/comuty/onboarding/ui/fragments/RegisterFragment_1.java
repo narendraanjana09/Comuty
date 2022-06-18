@@ -1,8 +1,14 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
@@ -11,16 +17,24 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +45,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.FragmentPhone1Binding;
 import com.nsa.comuty.databinding.FragmentRegister1Binding;
+import com.nsa.comuty.extra.Util;
+import com.nsa.comuty.extra.Zoom_Image_Dialog;
+import com.nsa.comuty.home.models.DateModel;
+import com.nsa.comuty.onboarding.models.ImageModel;
+import com.skydoves.powermenu.MenuAnimation;
+import com.skydoves.powermenu.OnMenuItemClickListener;
+import com.skydoves.powermenu.PowerMenu;
+import com.skydoves.powermenu.PowerMenuItem;
+
+import java.util.Calendar;
+
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -40,7 +65,8 @@ import kotlin.jvm.functions.Function1;
  * Use the {@link RegisterFragment_1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegisterFragment_1 extends Fragment {
+
+public class RegisterFragment_1 extends Fragment implements OnMenuItemClickListener<PowerMenuItem> {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -98,6 +124,7 @@ public class RegisterFragment_1 extends Fragment {
         return binding.getRoot();
     }
 
+    private ImageModel imageModel;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -113,47 +140,59 @@ public class RegisterFragment_1 extends Fragment {
                     .load(account.getPhotoUrl())
                     .into(binding.profileImageview);
             binding.nameEd.setText(account.getDisplayName());
+            imageModel=new ImageModel(account.getPhotoUrl().toString(),true);
         }
 
         binding.nextBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.action_registerFragment_to_registerFragment_2);
+                String name=binding.nameEd.getText().toString().trim();
+                String dob=binding.dobED.getText().toString().trim();
+                String bio=binding.bioED.getText().toString().trim();
+                if(name.isEmpty()){
+                    showToast("Name can't be empty");
+                    return;
+                }
+                Bundle bundle = new Bundle();
+                bundle.putString("name", name);
+                bundle.putString("dob", dob);
+                bundle.putString("bio",bio);
+                bundle.putString("image",imageModel.getPath());
+                bundle.putBoolean("isLink",imageModel.isLink());
+                navController.navigate(R.id.action_registerFragment_to_registerFragment_2,bundle);
             }
         });
+
         getDOB();
        getImage();
     }
 
     private void getDOB() {
-        binding.dobED.addTextChangedListener(new TextWatcher() {
+        binding.dobED.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onClick(View view) {
+               String date=binding.dobED.getText().toString().trim();
 
-            }
+                Calendar calendar = Calendar.getInstance();
+                int yr = calendar.get(Calendar.YEAR);
+                int mnth = calendar.get(Calendar.MONTH);
+                int dy = calendar.get(Calendar.DAY_OF_MONTH);
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String s=editable.toString();
-                if(!s.isEmpty()){
-                    if((s.charAt(s.length()-1)+"").equals("/")){
-                        s = s.substring(0, s.length()-1);
-                        binding.dobED.setText(s);
-                        binding.dobED.setSelection(s.length());
-                    }else {
-                        if (s.length() == 3 || s.length() == 6) {
-                            s = s.substring(0, s.length()-1) + "/" + s.charAt(s.length()-1);
-                            binding.dobED.setText(s);
-                            binding.dobED.setSelection(s.length());
-                        }
-                    }
+                if(!date.isEmpty()){
+                    DateModel model= Util.getDate(date);
+                    yr= Integer.parseInt(model.getYear());
+                    mnth= Integer.parseInt(model.getMonth())-1;
+                    dy= Integer.parseInt(model.getDay());
                 }
-
+                DatePickerDialog datePickerDialog=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        String s=day+"/"+(month+1)+"/"+year;
+                        binding.dobED.setText(s);
+                    }
+                },yr, mnth,dy);
+                datePickerDialog.getDatePicker().setMaxDate((System.currentTimeMillis() - 1000));
+                datePickerDialog.show();
             }
         });
     }
@@ -163,17 +202,22 @@ public class RegisterFragment_1 extends Fragment {
         binding.cardImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImagePicker.with(getActivity())
-                        .cropSquare()                    //Crop image(Optional), Check Customization for more option
-                        .compress(1024)            //Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
-                        .createIntent(new Function1<Intent, Unit>() {
-                            @Override
-                            public Unit invoke(Intent intent) {
-                                getImage.launch(intent);
-                                return null;
-                            }
-                        });
+
+                 powerMenu = new PowerMenu.Builder(getContext())
+                         .addItem(new PowerMenuItem("view", false))
+                        .addItem(new PowerMenuItem("update", false)) // add an item.// aad an item list.
+                        .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT) // Animation start point (TOP | LEFT).
+                        .setMenuRadius(10f) // sets the corner radius.
+                        .setMenuShadow(10f) // sets the shadow.
+                        .setTextColor(ContextCompat.getColor(getContext(), R.color.text_color))
+                        .setTextGravity(Gravity.CENTER)
+                        .setTextSize(16)
+                        .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.BOLD))
+                        .setMenuColor(ContextCompat.getColor(getContext(), R.color.background))
+                        .setSelectedMenuColor(ContextCompat.getColor(getContext(), R.color.teal_200))
+                        .setOnMenuItemClickListener(RegisterFragment_1.this)
+                        .build();
+                powerMenu.showAsDropDown(view);
             }
         });
     }
@@ -188,6 +232,7 @@ public class RegisterFragment_1 extends Fragment {
                         binding.profileImageview.setImageURI(uri);
                         binding.profileImageview.setScaleType(ImageView.ScaleType.FIT_XY);
                         binding.profileImageview.setImageTintList(null);
+                       imageModel=new ImageModel(uri.toString(),false);
 
 
 
@@ -196,10 +241,36 @@ public class RegisterFragment_1 extends Fragment {
                 }
             });
 
-    private void showToast(String uri) {
-        Toast.makeText(getContext(), ""+uri, Toast.LENGTH_SHORT).show();
+    private void showToast(String message) {
+        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
     }
 
 
+    PowerMenu powerMenu;
+    @Override
+    public void onItemClick(int position, PowerMenuItem item) {
 
+        if(position==1){
+            ImagePicker.with(getActivity())
+                    .cropSquare()                    //Crop image(Optional), Check Customization for more option
+                    .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                    .galleryOnly()
+                    .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
+                    .createIntent(new Function1<Intent, Unit>() {
+                        @Override
+                        public Unit invoke(Intent intent) {
+                            getImage.launch(intent);
+                            return null;
+                        }
+                    });
+        }else{
+            if(imageModel!=null){
+                Zoom_Image_Dialog dialog=new Zoom_Image_Dialog(imageModel);
+                dialog.show(getParentFragmentManager(),"zoomImage");
+            }
+
+        }
+        powerMenu.setSelectedPosition(position); // change selected item
+        powerMenu.dismiss();
+    }
 }

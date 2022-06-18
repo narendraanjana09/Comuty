@@ -10,6 +10,9 @@ import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.ActivityOnboardingBinding;
 
 
+
+
+
 public class OnBoardingActivity extends AppCompatActivity {
     private ActivityOnboardingBinding binding;
 

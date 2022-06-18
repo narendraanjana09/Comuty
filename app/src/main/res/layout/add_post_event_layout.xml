@@ -58,7 +58,7 @@
         app:cardCornerRadius="10dp"
         app:cardBackgroundColor="@color/background"
         >
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -68,7 +68,7 @@
             />
 
     </androidx.cardview.widget.CardView>
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/info1"
         android:text="* Event might be a Hackathon or any possible\n   event in your college or somewhere"
         android:textColor="@color/text_hint_color"
@@ -77,7 +77,7 @@
         android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/orTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
         app:cardCornerRadius="10dp"
         app:cardBackgroundColor="@color/background"
         >
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -142,7 +142,7 @@
             />
 
     </androidx.cardview.widget.CardView>
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/info2"
         android:text="* Post might be on your latest achievements or\n   your new thoughts "
         android:textColor="@color/text_hint_color"

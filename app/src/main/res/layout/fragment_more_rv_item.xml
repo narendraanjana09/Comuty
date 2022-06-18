@@ -30,7 +30,7 @@
             app:layout_constraintBottom_toTopOf="@id/title_tv"
             app:layout_constraintTop_toTopOf="parent"
             />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/title_tv"
             android:text="Search"
             android:textSize="25sp"

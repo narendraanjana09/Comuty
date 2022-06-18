@@ -1,20 +1,21 @@
 {
   "project_info": {
-    "project_number": "388889045704",
-    "project_id": "comuty-7dd70",
-    "storage_bucket": "comuty-7dd70.appspot.com"
+    "project_number": "289803378671",
+    "firebase_url": "https://comuty-dc2c7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "comuty-dc2c7",
+    "storage_bucket": "comuty-dc2c7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:388889045704:android:bbb97878482b63513193fd",
+        "mobilesdk_app_id": "1:289803378671:android:8170456ce22e88334d201a",
         "android_client_info": {
           "package_name": "com.nsa.comuty"
         }
       },
       "oauth_client": [
         {
-          "client_id": "388889045704-qjsfjfjf4aue89pdvse2hhigndvmtv4m.apps.googleusercontent.com",
+          "client_id": "289803378671-q3i3ic2ibkan315l6ncu8mvdghlkievp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nsa.comuty",
@@ -22,20 +23,20 @@
           }
         },
         {
-          "client_id": "388889045704-cldf89i9s23vg6o040lh59hpdjoggp02.apps.googleusercontent.com",
+          "client_id": "289803378671-a5q53j1jg9q31hlb6l0mrr34sjabvcbm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAGX60_PzyWzoe2A5A6Qvs0EtwZrWysbaw"
+          "current_key": "AIzaSyAWRJ5tKk-O3BrQF_0Ip3CAZ1HdmDww0h4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "388889045704-cldf89i9s23vg6o040lh59hpdjoggp02.apps.googleusercontent.com",
+              "client_id": "289803378671-a5q53j1jg9q31hlb6l0mrr34sjabvcbm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

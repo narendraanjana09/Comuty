@@ -3,25 +3,20 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="google_signin_key">388889045704-8joa2f33hb9459efcvduj5r971bk2mki.apps.googleusercontent.com</string>
 
-    <string-array name="graduationYear">
-        <item>2022</item>
-        <item>2023</item>
-        <item>2024</item>
-        <item>2025</item>
-    </string-array>
     <string-array name="studyYear">
-        <item>First</item>
-        <item>Second</item>
-        <item>Third</item>
-        <item>Fourth</item>
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
     </string-array>
     <string-array name="section">
-        <item>A-1</item>
-        <item>A-2</item>
-        <item>A-3</item>
-        <item>A-4</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
     <string-array name="branch">
         <item>CSE</item>
@@ -31,8 +26,17 @@
         <item>EC</item>
     </string-array>
 
-    <string-array name="rangeSliderValues" >
-    <item>1</item>
-    <item>20</item>
+    <string-array name="rangeSliderValues">
+        <item>1</item>
+        <item>20</item>
+    </string-array>
+    <string-array name="colleges">
+        <item>INDORE INSTITUTE OF SCIENCE AND TECHNOLOGY - [IIST], INDORE</item>
+        <item>ACROPOLIS INSTITUTE OF TECHNOLOGY &amp; RESEARCH - [AITR], INDORE</item>
+        <item>MEDI-CAPS UNIVERSITY, INDORE</item>
+        <item>PRESTIGE INSTITUTE OF ENGINEERING MANAGEMENT AND RESEARCH - [PIEMR], INDORE</item>
+        <item>INSTITUTE OF ENGINEERING AND TECHNOLOGY, DEVI AHILYA UNIVERSITY - [IET -DAVV], INDORE</item>
+        <item>IIT INDORE - INDIAN INSTITUTE OF TECHNOLOGY - [IITI], INDORE</item>
+        <item>Institute Of Engineering &amp; Science IPS Academy Indore</item>
     </string-array>
 </resources>

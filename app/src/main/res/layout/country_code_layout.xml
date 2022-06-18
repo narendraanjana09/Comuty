@@ -9,26 +9,8 @@
     android:id="@+id/bottom_sheet_layout"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     >
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationVie1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_rawRes="@raw/bubbles1"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        />
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationVie2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:lottie_rawRes="@raw/bubbles1"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        />
+
+
 
     <ImageView
         android:id="@+id/close"
@@ -92,7 +74,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/countryCodeRecyclerView"
         android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="@id/searchLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/searchLayout"

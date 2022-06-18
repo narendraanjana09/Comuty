@@ -7,43 +7,48 @@
 
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.nsa.comuty.home.ui.explore.ExploreFragment"
-        android:label="fragment_explore"
+        android:name="com.nsa.comuty.home.ui.posts.ExploreFragment"
+        android:label="Explore"
         tools:layout="@layout/fragment_explore" >
 
     </fragment>
     <fragment
         android:id="@+id/chatsFragment"
         android:name="com.nsa.comuty.home.ui.chats.ChatsFragment"
-        android:label="fragment_chats"
+        android:label="Chats"
         tools:layout="@layout/fragment_chats" >
 
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.nsa.comuty.home.ui.events.EventFragment"
-        android:label="fragment_event"
+        android:label="Events"
         tools:layout="@layout/fragment_event" >
 
     </fragment>
     <fragment
         android:id="@+id/moreFragment"
         android:name="com.nsa.comuty.home.ui.more.MoreFragment"
-        android:label="fragment_more"
+        android:label="More"
         tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/feedbackFragment"
         android:name="com.nsa.comuty.home.ui.more.FeedbackFragment"
-        android:label="fragment_feedback"
+        android:label="Feedback"
         tools:layout="@layout/fragment_feedback" />
     <fragment
         android:id="@+id/newPostFragment"
-        android:name="com.nsa.comuty.home.ui.explore.NewPostFragment"
-        android:label="fragment_new_post"
+        android:name="com.nsa.comuty.home.ui.posts.NewPostFragment"
+        android:label="New Post"
         tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/newEventFragment"
         android:name="com.nsa.comuty.home.ui.events.NewEventFragment"
-        android:label="fragment_new_event"
+        android:label="New Event"
         tools:layout="@layout/fragment_new_event" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.nsa.comuty.home.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

@@ -69,6 +69,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 import in.aabhasjindal.otptextview.OTPListener;
 
 /**
@@ -76,6 +77,7 @@ import in.aabhasjindal.otptextview.OTPListener;
  * Use the {@link PhoneFragment_1#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class PhoneFragment_1 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -255,7 +257,7 @@ public class PhoneFragment_1 extends Fragment {
     }
 
     private void checkUserData(FirebaseUser user) {
-        new Database().getReferenceUsers().child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        new Database().getReferenceColleges().child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 progress_dialog.dismiss();

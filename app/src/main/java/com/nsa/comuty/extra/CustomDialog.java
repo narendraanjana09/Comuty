@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 
 import com.nsa.comuty.R;
 
+
+
+
 public class CustomDialog extends Dialog {
 
     public CustomDialog(@NonNull Context context, int themeResId) {

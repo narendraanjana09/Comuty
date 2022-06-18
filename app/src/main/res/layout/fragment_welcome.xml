@@ -26,7 +26,7 @@
             app:layout_constraintBottom_toTopOf="@id/txt1"
 
             />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/txt1"
             android:text="Welcome to Comuty"
             android:layout_width="wrap_content"
@@ -39,17 +39,25 @@
             android:textColor="@color/black"
             app:layout_constraintHorizontal_bias="0.3"
             android:layout_height="wrap_content"/>
-        <TextView
+
+        <TextView android:fontFamily="@font/kalam_light"
+            android:layout_width="0dp"
             android:id="@+id/txt2"
-            android:text="Login or SignUp"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
             app:layout_constraintStart_toStartOf="@id/with_google"
             app:layout_constraintTop_toBottomOf="@id/txt1"
+            app:layout_constraintEnd_toEndOf="@id/with_google"
             app:layout_constraintBottom_toTopOf="@id/with_google"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            app:layout_constraintHorizontal_bias="0.4"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            android:ellipsize="end"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:text="select your college"
+            android:drawableTint="@color/text_color"
+            android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+            android:drawableLeft="@drawable/college"
+            android:drawablePadding="20dp"
             android:layout_height="wrap_content"/>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -119,4 +127,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <include layout="@layout/country_code_layout" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

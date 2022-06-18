@@ -45,6 +45,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -53,6 +54,7 @@ import kotlin.jvm.functions.Function1;
  * Use the {@link NewEventFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class NewEventFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -242,7 +244,8 @@ public class NewEventFragment extends Fragment {
             public void onClick(View view) {
                 ImagePicker.with(getActivity())
                         .crop(4f,2f)                    //Crop image(Optional), Check Customization for more option
-                        .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                        .compress(1024)
+                        .galleryOnly()//Final image size will be less than 1 MB(Optional)
                         .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
                         .createIntent(new Function1<Intent, Unit>() {
                             @Override

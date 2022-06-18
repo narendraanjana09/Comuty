@@ -1,14 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.ui.explore.ExploreFragment">
+    tools:context=".home.ui.posts.ExploreFragment">
    <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/mainLayout"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+      <include
+          android:id="@+id/uploading_card"
+          android:layout_margin="10dp"
+          app:layout_constraintTop_toTopOf="parent"
+          layout="@layout/uploading_card"
+          android:layout_height="100dp"
+          android:visibility="gone"
+          android:layout_width="match_parent"
+          />
+
+
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/pagingRecycler"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          app:layout_constraintTop_toBottomOf="@id/uploading_card"
+          app:layout_constraintBottom_toBottomOf="parent"
+          />
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/topBTN"
+          android:backgroundTint="#FFD600"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_marginEnd="40dp"
+          android:layout_marginBottom="10dp"
+          android:rotation="180"
+          android:visibility="gone"
+          android:src="@drawable/ic_baseline_arrow_drop_down_24"
+          />
+      <ProgressBar
+          android:id="@+id/progress_bar"
+          android:layout_width="wrap_content"
+          android:indeterminateTint="@color/yellow"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_height="wrap_content"/>
+      <LinearLayout
+          android:id="@+id/noDataLayout"
+          android:layout_width="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:orientation="vertical"
+          android:visibility="gone"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          android:layout_height="wrap_content">
+      <ImageView
+          android:src="@drawable/empty"
+          android:layout_width="100dp"
+          android:layout_height="100dp"/>
+         <TextView
+             android:text="no data"
+             android:textColor="@color/text_hint_color"
+             android:fontFamily="@font/kalam_light"
+             android:textSize="18sp"
+             android:layout_gravity="center"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+      </LinearLayout>
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
+</layout>

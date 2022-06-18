@@ -19,10 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.FragmentIntroScreensBinding;
 import com.nsa.comuty.onboarding.adapters.ScreensAdapter;
 import com.nsa.comuty.onboarding.extra.SavedText;
+
+
+
 
 
 public class IntroScreensFragment extends Fragment {
@@ -67,7 +71,7 @@ public class IntroScreensFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
 
-        if(new SavedText(getContext()).getText(GO_TO).equals(REGISTER)){
+        if(new SavedText(getContext()).getText(GO_TO).equals(REGISTER) && FirebaseAuth.getInstance().getCurrentUser()!=null){
             goToRegister();
         }else{
         if(new SavedText(getContext()).getText(INTRO_SCREENS_DONE).equals("1")){

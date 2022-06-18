@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:visibility="gone"
         android:layout_height="wrap_content"/>
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/info_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:buttonTint="@color/button_bg1"
         android:textColor="@color/white"
         />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/privacyPolicyBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

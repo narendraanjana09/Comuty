@@ -13,6 +13,9 @@ public class SavedText {
         this.context = context;
         sharedpreferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
     }
+    public void deleteAll(){
+        sharedpreferences.edit().clear().commit();
+    }
     public void setText(String key,String text){
         sharedpreferences.edit().putString(key,text).apply();
     }

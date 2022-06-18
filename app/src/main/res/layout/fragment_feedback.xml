@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.ui.more.FeedbackFragment">
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +30,7 @@
               app:layout_constraintEnd_toStartOf="@id/titleTV"
               />
 
-          <TextView
+          <TextView android:fontFamily="@font/kalam"
               android:id="@+id/titleTV"
               android:layout_width="0dp"
               app:layout_constraintWidth_percent="0.8"
@@ -67,14 +68,14 @@
               android:paddingStart="20dp"
               android:orientation="vertical"
               >
-              <TextView
+              <TextView android:fontFamily="@font/kalam"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Rate Your Experience"
                   android:textColor="@color/text_color"
                   android:textSize="22sp"
                   />
-              <TextView
+              <TextView android:fontFamily="@font/kalam"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_marginTop="10dp"
@@ -149,3 +150,4 @@
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+</layout>

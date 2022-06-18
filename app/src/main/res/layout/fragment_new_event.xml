@@ -20,16 +20,17 @@
         >
         <ImageView
             android:id="@+id/backBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
             android:src="@drawable/back"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/titleTV"
             app:layout_constraintBottom_toBottomOf="@id/titleTV"
             app:layout_constraintEnd_toStartOf="@id/titleTV"
             />
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,10 +54,10 @@
             app:cardElevation="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Post"
+                android:text="Share"
                 android:padding="8dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
@@ -96,6 +97,7 @@
             android:layout_margin="10dp"
             android:buttonTint="@color/check_box"
             android:checked="true"
+            android:visibility="gone"
             android:drawableTint="@color/text_hint_color"
             android:text="Show Preview"
             android:textColor="@color/text_hint_color"
@@ -110,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             app:layout_constraintTop_toBottomOf="@id/preview_cb" />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             app:layout_constraintTop_toBottomOf="@id/preview"
             app:layout_constraintEnd_toEndOf="@id/preview"
             android:textColor="@color/text_hint_color"
@@ -120,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@id/preview"
             app:layout_constraintStart_toStartOf="@id/event_name_ED"
             />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/nameEDCounter"
             android:textColor="@color/text_hint_color"
             android:text="0/25"
@@ -160,7 +162,7 @@
             android:drawablePadding="20dp"
             android:backgroundTint="@color/text_color"
             android:layout_height="wrap_content"/>
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/txt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,7 +193,7 @@
             android:drawablePadding="20dp"
             android:backgroundTint="@color/text_color"
             android:layout_height="wrap_content"/>
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/txt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -222,7 +224,7 @@
             android:drawablePadding="20dp"
             android:backgroundTint="@color/text_color"
             android:layout_height="wrap_content"/>
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/txt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -234,7 +236,7 @@
             app:layout_constraintTop_toBottomOf="@id/date_time_ed"
             app:layout_constraintStart_toStartOf="@id/event_name_ED"
             />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/descEDCounter"
             android:textColor="@color/text_hint_color"
             android:text="0/300"
@@ -263,7 +265,7 @@
             android:backgroundTint="@color/text_color"
             android:layout_height="wrap_content"/>
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/members_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

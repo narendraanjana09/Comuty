@@ -32,7 +32,7 @@
             app:layout_constraintEnd_toStartOf="@id/titleTV"
             />
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/titleTV"
             android:layout_width="0dp"
             app:layout_constraintWidth_percent="0.8"
@@ -66,14 +66,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent="0.4"
-        app:lottie_rawRes="@raw/phone"
+
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/txt2"
         />
 
-    <TextView
+    <TextView android:fontFamily="@font/kalam"
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/countryCodeTXT"
                 android:layout_width="0dp"
                 app:layout_constraintWidth_percent="0.25"
@@ -169,7 +169,7 @@
             app:buttonTint="@color/text_color"
             android:textColor="@color/text_color"
             />
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/privacyPolicyBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

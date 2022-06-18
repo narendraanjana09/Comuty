@@ -1,9 +1,14 @@
 package com.nsa.comuty.onboarding.ui.fragments;
 
+import static com.nsa.comuty.onboarding.extra.Keys.COLLEGE;
 import static com.nsa.comuty.onboarding.extra.Keys.GO_TO;
 import static com.nsa.comuty.onboarding.extra.Keys.HOME;
+import static com.nsa.comuty.onboarding.extra.Keys.NAME;
+import static com.nsa.comuty.onboarding.extra.Keys.PROFILE_IMAGE;
 
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,26 +20,53 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.nsa.comuty.R;
 import com.nsa.comuty.databinding.CountryCodeLayoutBinding;
 import com.nsa.comuty.databinding.FragmentRegister2Binding;
+import com.nsa.comuty.extra.Database;
+import com.nsa.comuty.extra.Storage;
+import com.nsa.comuty.home.HomeActivity;
 import com.nsa.comuty.onboarding.adapters.CollegeNameAdapter;
+import com.nsa.comuty.onboarding.extra.DownloadImage;
 import com.nsa.comuty.onboarding.extra.Keyboard;
+import com.nsa.comuty.onboarding.extra.ProgressDialog;
 import com.nsa.comuty.onboarding.extra.SavedText;
 import com.nsa.comuty.onboarding.interfaces.CollegeClickListener;
+import com.nsa.comuty.onboarding.interfaces.DownloadListener;
 import com.nsa.comuty.onboarding.models.CollegeModel;
+import com.nsa.comuty.onboarding.models.UserCollegeModel;
+import com.nsa.comuty.onboarding.models.UserModel;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+
 
 
 /**
@@ -42,6 +74,7 @@ import java.util.List;
  * Use the {@link RegisterFragment_2#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class RegisterFragment_2 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -75,9 +108,19 @@ public class RegisterFragment_2 extends Fragment {
         return fragment;
     }
 
+    String name,dob,bio,image,college="",branch="",year="",section,enrollment,gradYear;
+    boolean isLink;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+             name=bundle.getString("name", "");
+             dob=bundle.getString("dob","");
+             bio=bundle.getString("bio","");
+             image=bundle.getString("image","");
+             isLink=bundle.getBoolean("isLink");
+        }
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -97,17 +140,39 @@ public class RegisterFragment_2 extends Fragment {
     private CountryCodeLayoutBinding collegeNameBinding;
     private BottomSheetBehavior sheetBehavior;
     private CollegeNameAdapter adapter;
+    private List<String> graduationList;
+    private GoogleSignInAccount account;
+    private FirebaseUser firebaseUser;
+    private ProgressDialog progressDialog;
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController= Navigation.findNavController(view);
+        account= com.google.android.gms.auth.api.signin.GoogleSignIn.getLastSignedInAccount(getActivity());
+        firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        progressDialog=new ProgressDialog();
 
         //----Branch Spinner-----//
+        String[] branches=getResources().getStringArray(R.array.branch);
+        String[] years=getResources().getStringArray(R.array.studyYear);
+        String[] sections=getResources().getStringArray(R.array.section);
         ArrayAdapter<String> branchAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.branch));
+                R.layout.spinner_item, branches);
         branchAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.branchSpinner.setAdapter(branchAdapter);
+        binding.branchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                branch=branches[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         binding.branchSpinner.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -121,9 +186,21 @@ public class RegisterFragment_2 extends Fragment {
 
         // ----Year Spinner-----//
         ArrayAdapter<String> yearAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.studyYear));
+                R.layout.spinner_item, getResources().getStringArray(R.array.studyYear));
         yearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.yearSpinner.setAdapter(yearAdapter);
+        binding.yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                year=years[i];
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         binding.yearSpinner.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -136,9 +213,21 @@ public class RegisterFragment_2 extends Fragment {
 
         // ----Section Spinner-----//
         ArrayAdapter<String> sectionAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.section));
+                R.layout.spinner_item, getResources().getStringArray(R.array.section));
         sectionAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.sectionSpinner.setAdapter(sectionAdapter);
+        binding.sectionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                section=sections[i];
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         binding.sectionSpinner.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -150,10 +239,29 @@ public class RegisterFragment_2 extends Fragment {
         //----------//
 
         // ----Graduation Year Spinner-----//
+        graduationList=new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        int yr = calendar.get(Calendar.YEAR);
+        for(int i=yr;i<=yr+4;i++){
+            graduationList.add(i+"");
+        }
+
         ArrayAdapter<String> graduationYearAdapter= new ArrayAdapter<String>(getContext(),
-                R.layout.country_code_item, getResources().getStringArray(R.array.graduationYear));
+                R.layout.spinner_item,graduationList);
         graduationYearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         binding.graduationYearSpinner.setAdapter(graduationYearAdapter);
+        binding.graduationYearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                gradYear=graduationList.get(i);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         binding.graduationYearSpinner.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -185,19 +293,149 @@ public class RegisterFragment_2 extends Fragment {
         binding.submitBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new SavedText(getContext()).setText(GO_TO,HOME);
+                String enrollment=binding.enrollmentED.getText().toString().trim();
+                String email="";
+                if(account!=null){
+                    email=account.getEmail();
+                }
+                if(check(college,branch,year)){
+
+                    progressDialog.show(getParentFragmentManager(),"tag");
+                    UserModel userModel=new UserModel(name,dob,email, firebaseUser.getUid(), bio,"",college,branch,year,section,enrollment,gradYear);
+                    uploadImage(userModel);
+
+                }
             }
         });
         initCollegeNameLayout();
 
+
 }
+
+    private void uploadImage(UserModel userModel) {
+        if(isLink){
+            new DownloadImage(new DownloadListener() {
+                @Override
+                public void OnDownloaded(InputStream inputStream) {
+                    startUpload(inputStream,userModel);
+                }
+            }).execute(image);
+        }else{
+            try {
+                InputStream  inputStream = getContext().getContentResolver().openInputStream(Uri.parse(image));
+                startUpload(inputStream,userModel);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                showToast("error");
+                progressDialog.dismiss();
+            }
+        }
+    }
+
+    private void startUpload(InputStream inputStream, UserModel userModel) {
+        StorageReference ref=new Storage().getCollegeRef().child(userModel.getCollege()).child("users/"+firebaseUser.getUid()+"/profile.jpg");
+        UploadTask uploadTask = ref.putStream(inputStream);
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    showToast("error");
+                    progressDialog.dismiss();
+                    throw task.getException();
+
+                }
+
+                // Continue with the task to get the download URL
+                return ref.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    userModel.setProfileUrl(downloadUri.toString());
+                    Log.e("TAG", "imageLink: "+downloadUri);
+                    uploadUserData(userModel);
+                } else {
+                    showToast("error");
+                    progressDialog.dismiss();
+                }
+            }
+        });
+    }
+
+    private Database database;
+    private void uploadUserData(UserModel userModel) {
+        database=new Database();
+        database.getReferenceColleges().child(userModel.getCollege()).child("users").child(firebaseUser.getUid())
+                .setValue(userModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                UserCollegeModel model=new UserCollegeModel(userModel.getEmail(),userModel.getCollege());
+                database.getReferenceUsersCollege().child(firebaseUser.getUid()).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        showToast("Profile Created!");
+                        progressDialog.dismiss();
+                        new SavedText(getContext()).setText(GO_TO,HOME);
+                        new SavedText(getContext()).setText(COLLEGE,userModel.getCollege());
+                        new SavedText(getContext()).setText(NAME,userModel.getName());
+                        new SavedText(getContext()).setText(PROFILE_IMAGE,userModel.getProfileUrl());
+                        Intent intent=new Intent(getActivity(), HomeActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.printStackTrace();
+                        showToast("error");
+                        progressDialog.dismiss();
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                e.printStackTrace();
+                showToast("error");
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+
+    private boolean check(String college, String branch, String year) {
+        if(college.isEmpty()){
+            showToast("please select your college!");
+            return false;
+        }
+        if(branch.isEmpty()){
+            showToast("please select your branch!");
+            return false;
+        }
+        if(year.isEmpty()){
+            showToast("please select your year!");
+            return false;
+        }
+        return true;
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
+    }
     private void initCollegeNameLayout() {
+        college=new SavedText(getContext()).getText(COLLEGE);
+        binding.collegeNameTV.setText(college);
+        binding.collegeNameTV.setEnabled(false);
         adapter=new CollegeNameAdapter(getContext());
         adapter.setListener(new CollegeClickListener() {
             @Override
             public void onClick(CollegeModel model) {
                 Keyboard.hide(collegeNameBinding.searchED);
                 collegeNameBinding.close.callOnClick();
+                college=model.getCollegeName();
                 binding.collegeNameTV.setText(model.getCollegeName());
             }
         });

@@ -12,7 +12,7 @@
            android:layout_width="match_parent"
            android:layout_height="0dp"
            app:layout_constraintHeight_percent="0.4"
-           app:lottie_rawRes="@raw/success_2"
+
            app:lottie_autoPlay="true"
            app:lottie_loop="true"
            app:layout_constraintTop_toTopOf="parent"

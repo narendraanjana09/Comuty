@@ -24,7 +24,7 @@
         app:layout_constraintStart_toEndOf="@id/profile_image2"
         app:layout_constraintTop_toTopOf="@id/profile_image2">
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:textColor="@color/text_color"
             android:textSize="17sp" />
 
-        <TextView
+        <TextView android:fontFamily="@font/kalam"
             android:id="@+id/view_profile_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/text_color" />
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/text_color" />
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -278,7 +278,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -396,7 +396,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -461,7 +461,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/text_color" />
 
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

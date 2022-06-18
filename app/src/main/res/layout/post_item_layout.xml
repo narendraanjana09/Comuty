@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="20dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="20dp"
     android:layout_marginTop="10dp"
-    app:cardBackgroundColor="@color/post_event_card_color"
     app:layout_constraintHeight_percent="0.3">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 />
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/name_tv"
                 android:text="Narendra Singh Aanjna"
                 android:textColor="@color/text_color"
@@ -43,7 +43,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/time_tv"
                 android:text="0 seconds ago"
                 android:textColor="@color/text_hint_color"
@@ -86,12 +86,10 @@
                 android:text="your thougths..."
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/images_rv"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_margin="10dp"
-                android:maxLength="500"
-                android:lines="3"
-                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/images_rv"
+                android:padding="10dp"
+                android:maxLines="3"
                 android:ellipsize="end"
                 android:textSize="15sp"
                 android:layout_width="0dp"
@@ -100,15 +98,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/images_rv"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/desc_tv"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/desc_tv"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_height="wrap_content"/>
 
@@ -124,6 +118,7 @@
             android:id="@+id/third_layout"
             app:layout_constraintTop_toBottomOf="@id/second_layout"
             android:layout_width="match_parent"
+            android:paddingStart="10dp"
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/like_btn"
@@ -134,7 +129,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/like_tv"
                 app:layout_constraintStart_toEndOf="@id/like_btn"
                 app:layout_constraintTop_toTopOf="@id/like_btn"
@@ -154,7 +149,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="26dp"
                 android:layout_height="26dp"/>
-            <TextView
+            <TextView android:fontFamily="@font/kalam"
                 android:id="@+id/comment_tv"
                 app:layout_constraintStart_toEndOf="@id/comment_btn"
                 app:layout_constraintTop_toTopOf="@id/comment_btn"

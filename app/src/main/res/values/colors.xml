@@ -7,12 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#546e7a</color>
     <color name="light_white">#D2D2D2</color>
+    <color name="light_white1">#ECECEC</color>
     <color name="post_event_card_color">#F9F9F9</color>
 
     <color name="check_box">#5FCFFD</color>
     <color name="background">#FFFFFFFF</color>
     <color name="background_light">#E8E8E8</color>
+    <color name="background_light_light">#F6F6F6</color>
     <color name="button_bg1">#D7E8EF</color>
     <color name="button_bg2">#F1F1F1</color>
     <color name="text_color">#FF000000</color>
